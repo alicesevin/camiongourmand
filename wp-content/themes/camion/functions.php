@@ -44,7 +44,6 @@ function start()
 
     // Styles
     add_action('wp_enqueue_scripts', 'load_styles', 999);
-    add_action('wp_enqueue_scripts', 'load_fonts');
     add_action('wp_footer', 'remove_embed');
 
     theme_support();
@@ -55,5 +54,4 @@ function start()
 }
 
 add_action('after_setup_theme', 'start');
-
 ?>

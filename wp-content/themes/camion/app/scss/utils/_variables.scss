@@ -1,15 +1,57 @@
-// Colors
-$blanc: #ffffff;
-$noir: #000000;
+/**
+* Colors
+**/
 
-// Fonts
-$browser-context: 16;
-$font-primary: 'Roboto', sans-serif;
-$font-secondary: 'Roboto Slab', sans-serif;
+//General
+$veryLight: #ffffff;
+$light: #ececec;
+$dark: #282828;
 
-// Breakpoints
-$xxs-max : 580px;
-$xs-max: 767px;
-$sm-max: 991px;
-$md-max: 1199px;
-$lg-min: 1200px;
+//header/nav
+$headerBg: #e2676a;
+
+//Gamme1
+$g1Light: #b8ddf4;
+$g1Medium: #3e4c61;
+$g1Dark: #404040;
+
+//Gamme2
+$g2Light: #e8d196;
+$g2Medium: #836e39;
+
+//Gamme3
+$g3Light: #e0a98d;
+$g3Medium: #8c5438;
+
+
+/**
+* Fonts
+**/
+
+//Context
+$browser-context: 15;
+
+//Family
+$font-primary: 'Poppins', 'Arial', 'Helvetica', sans-serif;
+$font-secondary: 'Amatica SC', cursive;
+
+//Styles
+$menuLogo : 20px;
+$menuBold : 16px;
+$menuReg : 14px;
+
+//Weights
+$bold:700;
+$semibold:600;
+$medium:500;
+$regular:400;
+$light:300;
+
+/**
+* Breakpoints
+**/
+
+$sm-min: 576px;
+$md-min: 768px;
+$lg-min: 992px;
+$xlg-min: 1200px;
