@@ -1,0 +1,36 @@
+//Main navigation
+
+.head__menu {
+
+  &Logo {
+
+    @include rem(font-size, $menuLogo);
+
+  }
+
+  &Links {
+
+    li{
+      display: block;
+      @include rem(font-size, $menuBold);
+      font-weight: $medium;
+      text-transform: uppercase;
+    }
+
+  }
+
+  &Contact {
+
+    @include rem(font-size, $menuReg);
+
+  }
+
+  &Adress {
+
+  }
+
+  &Sociaux {
+
+  }
+
+}

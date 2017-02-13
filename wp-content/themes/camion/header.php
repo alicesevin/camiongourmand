@@ -29,31 +29,28 @@
 
     <header class="header">
 
-        <div class="inner-header">
+        <div class="header__group">
+            <div class="header__sociaux">
+                <ul class="header__sociauxLinks">
+                    <li><a class="icon__sociaux--facebook" href="#">Facebook</a></li>
+                    <li><a class="icon__sociaux--instagram" href="#">Instagram</a></li>
+                </ul>
+            </div>
 
-            <h1 id="logo" class="h1">
+            <div class="header__logo">
                 <a href="<?php echo home_url(); ?>">
                     <?php bloginfo('name'); ?>
                 </a>
-            </h1>
+            </div>
 
-            <nav role="navigation">
-                <?php wp_nav_menu(array(
-                    'container' => false,
-                    'container_class' => 'menu',
-                    'menu' => 'Menu principal',
-                    'menu_class' => 'nav',
-                    'theme_location' => 'main-nav',
-                    'before' => '',
-                    'after' => '',
-                    'link_before' => '',
-                    'link_after' => '',
-                    'depth' => 0,
-                    'fallback_cb' => ''
-                )); ?>
-
-            </nav>
-
+            <?php wp_nav_menu(array(
+                'menu_id' => 'main-nav',
+                'menu_class' => 'header__menuLinks',
+                'container_id' => false,
+                'container' => 'nav',
+                'container_class' => 'header__menu',
+                'menu' => 'Menu principal',
+                'theme_location' => 'main-nav'
+            )); ?>
         </div>
-
     </header>
