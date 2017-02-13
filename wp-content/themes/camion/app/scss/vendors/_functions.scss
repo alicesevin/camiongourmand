@@ -1,0 +1,11 @@
+@function pourcentage($cible, $parent) {
+  @return ($cible / $parent) * 100%;
+}
+
+@function get_p($cible, $parent) {
+  @return pourcentage($cible, $parent);
+}
+
+@function parseInt($n){
+  @return $n / ($n * 0 + 1)
+}
