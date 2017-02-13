@@ -1,11 +1,20 @@
-// Vendors
-@import 'vendors/typos';
-@import 'vendors/variables';
-@import 'vendors/functions';
-@import 'vendors/mixins';
-// Global
-@import 'global/global';
+// Base
+@import 'base/reset';
+@import 'base/typos';
 
-// Blocs
-@import 'blocs/header';
-@import 'blocs/footer';
+// Utils
+@import 'utils/variables';
+@import 'utils/functions';
+@import 'utils/mixins';
+@import 'utils/helpers';
+
+// Partials
+@import 'partials/grid';
+@import 'partials/global';
+@import 'partials/header';
+@import 'partials/footer';
+@import 'partials/forms';
+
+// Modules
+@import 'modules/navigation';
+@import 'modules/carousel';
