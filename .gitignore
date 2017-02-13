@@ -4,4 +4,4 @@ node_modules/
 .htaccess
 wp-config.php
 wp-content/uploads/
-wp-content/themes/camion/dist/
+wp-content/themes/camion/dist/**
