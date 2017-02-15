@@ -9,12 +9,17 @@
 @import 'utils/helpers';
 
 // Partials
+@import 'partials/layout';
 @import 'partials/grid';
-@import 'partials/global';
 @import 'partials/header';
 @import 'partials/footer';
+@import 'partials/section';
 @import 'partials/forms';
 
 // Modules
 @import 'modules/navigation';
+@import 'modules/sociaux';
+@import 'modules/mosaic';
+@import 'modules/cover';
 @import 'modules/carousel';
+@import 'modules/menus';

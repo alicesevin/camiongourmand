@@ -18,8 +18,12 @@ require_once('inc/tools.php');
 function generate_globals()
 {
     $restau = get_field('restaurant', 'option');
+    $facebook = get_field('facebook', 'option');
+    $instagram = get_field('instagram', 'option');
 
     $GLOBALS['restau'] = ($restau) ? $restau : '';
+    $GLOBALS['facebook'] = ($facebook) ? $facebook : '';
+    $GLOBALS['instagram'] = ($instagram) ? $instagram : '';
 }
 
 function start()

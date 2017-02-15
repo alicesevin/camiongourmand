@@ -1,10 +1,19 @@
 /**
+* Breakpoints
+**/
+
+$sm-min: 576px;
+$md-min: 768px;
+$lg-min: 992px;
+$xlg-min: 1200px;
+
+/**
 * Colors
 **/
 
 //General
-$veryLight: #ffffff;
-$light: #ececec;
+$veryLightColor: #ffffff;
+$lightColor: #ececec;
 $dark: #282828;
 
 //header/nav
@@ -35,10 +44,26 @@ $browser-context: 15;
 $font-primary: 'Poppins', 'Arial', 'Helvetica', sans-serif;
 $font-secondary: 'Amatica SC', cursive;
 
-//Styles
+//Sizes
 $menuLogo : 20px;
 $menuBold : 16px;
+$mdMenuBold : 12px;
 $menuReg : 14px;
+
+$sectionTitle : 30px;
+$regularText : 16px;
+$sectionDetailTitle : 18px;
+
+$coverTitle : 50px;
+$coverSubtitle : 14px;
+
+$menusItemTitle : 15px;
+$menusItemDescription : 14px;
+$menusItemPrice : 16px;
+$menusItemPriceDetail : 12px;
+$menusItemPriceSmall : 10px;
+
+$footerTitle : 25px;
 
 //Weights
 $bold:700;
@@ -46,12 +71,3 @@ $semibold:600;
 $medium:500;
 $regular:400;
 $light:300;
-
-/**
-* Breakpoints
-**/
-
-$sm-min: 576px;
-$md-min: 768px;
-$lg-min: 992px;
-$xlg-min: 1200px;

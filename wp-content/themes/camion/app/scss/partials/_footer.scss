@@ -1,0 +1,52 @@
+.footer {
+
+  &__container {
+
+    background: $g2Light;
+    padding: 30px;
+    text-align: center;
+    color: $g2Medium;
+
+    @media screen and (min-width: $md-min) {
+      padding: 60px;
+    }
+
+  }
+
+  &__title {
+    font-weight: $medium;
+    @include rem(font-size, $footerTitle);
+    @include rem(letter-spacing, 2.5px);
+    text-transform: uppercase;
+  }
+
+  &__sociaux {
+    margin: 20px auto;
+  }
+
+  &__order {
+
+    font-weight: $semibold;
+
+    &Description {
+
+    }
+
+    &Link {
+
+      margin-top: 20px;
+      color: $veryLightColor;
+      padding: 15px 40px;
+      text-transform: uppercase;
+      display: inline-block;
+      border: 1px solid $veryLightColor;
+
+      @media screen and (min-width: $md-min) {
+        margin-top: 40px;
+      }
+
+    }
+
+  }
+
+}

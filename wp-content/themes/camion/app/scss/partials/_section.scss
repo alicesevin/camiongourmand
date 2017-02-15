@@ -1,0 +1,113 @@
+
+.section {
+
+  padding: 20px;
+  text-align: center;
+
+  @media screen and (min-width: $md-min) {
+    padding: 40px;
+  }
+
+}
+
+.section__title {
+
+  margin-bottom: 10px;
+  @include rem(font-size, $sectionTitle);
+  @include rem(letter-spacing, 2.5px);
+  text-transform: uppercase;
+  font-weight: $medium;
+
+}
+
+.section__description {
+
+  @include rem(font-size, $regularText);
+  @include rem(line-height, 30px);
+  font-weight: $light;
+  color: $dark;
+  max-width: 780px;
+  margin: 0 auto;
+
+  strong {
+    font-weight: $semibold;
+  }
+
+}
+.section__column{
+  @media screen and (min-width: $md-min) {
+    width: 50%;
+    float: left;
+    &-right{
+      float: right;
+    }
+  }
+}
+.section__detail {
+
+  text-align: left;
+
+  &Title {
+    margin: 30px auto 15px;
+    @include rem(font-size, $sectionDetailTitle);
+    @include rem(letter-spacing, 1.8px);
+    text-transform: uppercase;
+    font-weight: $semibold;
+  }
+
+  &Container {
+    margin: 15px auto;
+  }
+
+}
+
+.section-menus {
+
+  background: $veryLightColor;
+  overflow: hidden;
+  clear: both;
+
+  .section__title {
+    @include rem(font-size, $footerTitle);
+    color: $g3Medium;
+  }
+
+}
+
+.main-restaurant {
+
+  .section:not(.section-menus) {
+    background: $g1Light;
+
+  }
+  .section__detailTitle,
+  .section__title {
+    color: $g1Medium;
+  }
+
+}
+
+.main-camion {
+
+  .section:not(.section-menus) {
+    background: $g3Light;
+
+  }
+  .section__detailTitle,
+  .section__title {
+    color: $g3Medium;
+  }
+}
+
+.main-home {
+
+  .section-histoire {
+    background: $g2Light;
+
+  }
+  .section__title {
+    color: $g2Medium;
+    margin-bottom: 50px;
+  }
+
+}

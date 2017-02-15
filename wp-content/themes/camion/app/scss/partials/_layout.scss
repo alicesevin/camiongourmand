@@ -1,0 +1,27 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+
+  @include rem(font-size, $regularText);
+  font-family: $font-primary;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+}
+header,
+nav,
+footer,
+main,
+section,
+div{
+  @include box-sizing;
+}
+
+a{
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}

@@ -1,24 +1,65 @@
 .head {
 
-  &__sociaux {
+  text-align: center;
+  background: $headerBg;
+  color: $lightColor;
+  margin-bottom: 10px;
 
-  }
+  &__bar {
 
-  &__logo {
+    &Logo {
 
-    width: 40px;
+      width: 40px;
+      display: inline-block;
 
-    img {
-      width: 100%;
-      height: auto;
+      img {
+        width: 100%;
+        height: auto;
+      }
+
+    }
+
+    &Burger {
+      float: right;
+      margin-right: 20px;
+      span {
+        width: 20px;
+        height: 2px;
+        background: $lightColor;
+        display: block;
+        transform-origin: 41% 50%;
+      }
+      &-close {
+
+      }
+      &-first {
+        transform: rotate(45deg);
+      }
+      &-second {
+        display: none;
+      }
+      &-third {
+        transform: rotate(-45deg);
+      }
+
+      @media screen and (min-width: $md-min) {
+        display: none;
+      }
+
+    }
+
+    @media screen and (min-width: $md-min) {
+      display: inline-block;
     }
 
   }
 
-  &__burger {
+  &__menu {
 
+    @media screen and (min-width: $md-min) {
+      display: inline-block;
+    }
+    //Navigation in modules/navigation
   }
-
-  //Navigation in modules/navigation
 
 }

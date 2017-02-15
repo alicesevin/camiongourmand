@@ -1,0 +1,43 @@
+.menus__item {
+
+  margin: 15px auto;
+  clear: both;
+  overflow: hidden;
+
+  &Line{
+    clear: both;
+    overflow: hidden;
+    margin: 3px auto;
+  }
+
+  &Title {
+    float: left;
+    width: 50%;
+    @include rem(font-size, $menusItemTitle);
+    font-weight: $medium;
+    margin-bottom: 5px;
+  }
+
+  &Price{
+    float: left;
+    width: 50%;
+    text-align: right;
+    @include rem(font-size, $menusItemPrice);
+    &--small{
+      @include rem(font-size, $menusItemPriceSmall);
+    }
+  }
+
+  &Description{
+    clear: both;
+    @include rem(font-size, $menusItemDescription);
+    margin-bottom: 5px;
+  }
+
+  &Intitule{
+    float: left;
+    width: 50%;
+    @include rem(font-size, $menusItemPriceDetail);
+  }
+
+}

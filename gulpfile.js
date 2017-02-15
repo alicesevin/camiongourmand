@@ -16,7 +16,7 @@ var path = {
     theme_dest: './wp-content/themes/camion/dist/',
     theme_style: './wp-content/themes/camion/app/scss/',
     theme_js: './wp-content/themes/camion/app/js/',
-    theme_images: './wp-content/themes/camion/app/images/',
+    theme_images: './wp-content/themes/camion/app/img/',
     npm_dir: './node_modules/'
 };
 
@@ -33,9 +33,9 @@ gulp.task('scss', function () {
 
 // Optimisation Images
 gulp.task('images', function () {
-    gulp.src([path.theme_images + 'img/*.jpg', path.theme_images + 'img/*.png'])
+    gulp.src([path.theme_images + '*.jpg', path.theme_images + '*.png'])
         .pipe(flatten())
-        .pipe(gulp.dest(path.theme_dest + 'images/'));
+        .pipe(gulp.dest(path.theme_dest + 'img/'));
 });
 
 // Browserify to require modules in Js files

@@ -1,5 +1,8 @@
+<?php
+global $facebook;
+global $instagram;
+?>
 <!doctype html>
-
 <html <?php language_attributes(); ?>>
 <head>
     <meta charset="utf-8">
@@ -27,30 +30,62 @@
 
 <div id="container">
 
-    <header class="header">
+    <header class="head">
 
-        <div class="header__group">
-            <div class="header__sociaux">
-                <ul class="header__sociauxLinks">
-                    <li><a class="icon__sociaux--facebook" href="#">Facebook</a></li>
-                    <li><a class="icon__sociaux--instagram" href="#">Instagram</a></li>
-                </ul>
-            </div>
+        <div class="head__group">
 
-            <div class="header__logo">
+            <div class="head__bar">
+
+            <div class="head__barLogo">
                 <a href="<?php echo home_url(); ?>">
-                    <?php bloginfo('name'); ?>
+                    <img src="<?php echo get_stylesheet_directory_uri() ?>/dist/img/logo.png"
+                         alt="<?php bloginfo('name'); ?>">
                 </a>
             </div>
 
-            <?php wp_nav_menu(array(
-                'menu_id' => 'main-nav',
-                'menu_class' => 'header__menuLinks',
-                'container_id' => false,
-                'container' => 'nav',
-                'container_class' => 'header__menu',
-                'menu' => 'Menu principal',
-                'theme_location' => 'main-nav'
-            )); ?>
+            <div class="head__barBurger head__barBurger-close">
+                <span class="menu__burger-first"></span>
+                <span class="menu__burger-second"></span>
+                <span class="menu__burger-third"></span>
+            </div>
+
+            </div>
+
+            <div class="head__menu menu">
+
+                <?php wp_nav_menu(array(
+                    'menu_id' => 'main-nav',
+                    'menu_class' => 'nav__links',
+                    'container_id' => false,
+                    'container' => 'nav',
+                    'container_class' => 'menu__nav',
+                    'menu' => 'Menu principal',
+                    'theme_location' => 'main-nav'
+                )); ?>
+
+                <div class="menu__adress">
+                    <a href="#">Mentions Légales</a>
+                </div>
+
+
+                <?php if ($facebook || $instagram): ?>
+                    <div class="menu__sociaux">
+                        <ul class="menu__sociauxLinks">
+                            <li><a class="icon__sociaux icon-facebook" href="#">Facebook</a></li>
+                            <li><a class="icon__sociaux icon-instagram" href="#">Instagram</a></li>
+                        </ul>
+                    </div>
+                <?php endif; ?>
+
+                <div class="menu__adress">
+                    <p>
+                        38-42 rue cuvier,<br>
+                        Montreuil, Ile-De-France<br>
+                        France
+                        <strong>06 08 69 36 34</strong>
+                    </p>
+                </div>
+            </div>
+
         </div>
     </header>

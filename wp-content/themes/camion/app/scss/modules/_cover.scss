@@ -1,0 +1,44 @@
+.cover {
+
+  height: 572px;
+  background: #000;
+  width: 100%;
+  position: relative;
+
+  &__tryptique{
+    position: relative;
+    display: block;
+    height: 120px;
+  }
+
+  &__title {
+
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top:50%;
+    width: 100%;
+    transform: translateY(-50%);
+    font-family: $font-secondary;
+    @include rem(font-size, $coverTitle);
+    font-weight: $semibold;
+
+  }
+
+  &__subtitle {
+    display: block;
+    @include rem(font-size, $coverSubtitle);
+    @include rem(letter-spacing, 1px);
+    font-family: $font-primary;
+    text-transform: uppercase;
+    margin-top: 30px;
+  }
+
+  &__icon {
+    display: block;
+  }
+
+  &__nav {
+
+  }
+}

@@ -1,5 +1,7 @@
 <?php
 
+defined( 'ABSPATH' ) OR exit;
+
 /*********************
  * CLEAN
  *********************/
@@ -20,6 +22,8 @@ function clean_head()
     remove_action('admin_print_scripts', 'print_emoji_detection_script');
     remove_action('admin_print_styles', 'print_emoji_styles');
     add_filter('style_loader_src', 'remove_wp_styles', 9999);
+    remove_filter ( 'the_content', 'wpautop' );
+    add_filter ( 'the_content', 'br_to_content' );
     add_filter('login_errors', create_function('$a', "return null;"));
 
     // Page d'options
@@ -31,7 +35,9 @@ function clean_head()
     }
 
 }
-
+function br_to_content( $content ) {
+    return nl2br( $content );
+}
 function rewrite_title($title, $sep, $seplocation)
 {
     global $page, $paged;

@@ -1,35 +1,77 @@
 //Main navigation
 
-.head__menu {
+.menu {
 
-  &Logo {
+  padding: 20px 0;
 
-    @include rem(font-size, $menuLogo);
-
+  &__nav{
+    @media screen and (min-width: $md-min) {
+      display: inline-block;
+    }
   }
 
-  &Links {
+  &__adress {
 
-    li{
+    @include rem(font-size, $menuReg);
+    @include rem(line-height, 25px);
+
+    strong {
       display: block;
-      @include rem(font-size, $menuBold);
-      font-weight: $medium;
-      text-transform: uppercase;
+      font-weight: $semibold;
+      margin-top: 8px;
+    }
+
+    @media screen and (min-width: $md-min) {
+      display: none;
     }
 
   }
 
-  &Contact {
+  &__sociaux {
 
-    @include rem(font-size, $menuReg);
+    margin: 30px auto 15px;
+
+    @media screen and (min-width: $md-min) {
+      display: inline-block;
+    }
 
   }
 
-  &Adress {
+  .nav__links {
 
-  }
+    margin: 15px auto;
 
-  &Sociaux {
+    li {
+
+      display: block;
+      margin: 5px auto;
+      @include rem(font-size, $menuBold);
+      @include rem(letter-spacing, 1.5px);
+      font-weight: $medium;
+      text-transform: uppercase;
+
+      a {
+
+        display: block;
+        padding: 5px 0;
+
+      }
+
+    }
+    @media screen and (min-width: $md-min) {
+
+      li {
+        @include rem(font-size, $mdMenuBold);
+        font-weight: $regular;
+        display: inline-block;
+        margin: 4px 7px;
+
+        a {
+          padding: 4px 7px;
+
+        }
+      }
+    }
 
   }
 
