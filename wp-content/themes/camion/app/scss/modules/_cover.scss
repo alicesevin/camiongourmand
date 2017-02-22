@@ -9,6 +9,11 @@
     position: relative;
     display: block;
     height: 120px;
+    @media screen and (min-width: $md-min) {
+      width: 33%;
+      float: left;
+      height: 100%;
+    }
   }
 
   &__title {
@@ -22,6 +27,10 @@
     font-family: $font-secondary;
     @include rem(font-size, $coverTitle);
     font-weight: $semibold;
+    @media screen and (min-width: $md-min) {
+      padding: 20px;
+      word-break: break-word;
+    }
 
   }
 
