@@ -1,6 +1,6 @@
-mosaic {
+.mosaic {
   height: 45px;
   background: $veryLightColor url('../img/MOSAIC.jpg') 0 0 repeat;
-  background-attachment: fixed;
+  background-attachment: 100%;
   background-size: contain;
 }
