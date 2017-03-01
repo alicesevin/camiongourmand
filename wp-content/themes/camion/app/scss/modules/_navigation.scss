@@ -2,7 +2,12 @@
 
 .menu {
 
+  display: none;
   padding: 20px 0;
+
+  @media screen and (min-width: $md-min) {
+    display: block;
+  }
 
   &__nav{
     @media screen and (min-width: $md-min) {

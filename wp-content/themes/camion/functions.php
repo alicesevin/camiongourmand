@@ -20,9 +20,11 @@ function generate_globals()
     $restau = get_field('restaurant', 'option');
     $facebook = get_field('facebook', 'option');
     $instagram = get_field('instagram', 'option');
+    $takeit = get_field('takeit', 'option');
 
     $GLOBALS['restau'] = ($restau) ? $restau : '';
     $GLOBALS['facebook'] = ($facebook) ? $facebook : '';
+    $GLOBALS['takeit'] = ($takeit) ? $takeit : '';
     $GLOBALS['instagram'] = ($instagram) ? $instagram : '';
 }
 

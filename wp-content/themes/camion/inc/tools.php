@@ -130,7 +130,8 @@ function theme_support()
 {
     //FEED RSS
     add_theme_support('automatic-feed-links');
-
+    // THUMBNAILS
+    add_theme_support( 'post-thumbnails' );
     //MENUS
     add_theme_support('menus');
 

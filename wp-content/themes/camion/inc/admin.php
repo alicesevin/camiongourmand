@@ -66,7 +66,6 @@ function remove_admin_bar_links()
     $wp_admin_bar->remove_menu('updates');          // Remove the updates link
     $wp_admin_bar->remove_menu('comments');         // Remove the comments link
     $wp_admin_bar->remove_menu('w3tc');             // If you use w3 total cache remove the performance link
-    $wp_admin_bar->remove_menu('my-account');       // Remove the user details tab
 }
 
 function home_widget()

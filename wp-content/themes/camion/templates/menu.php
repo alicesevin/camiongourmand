@@ -40,5 +40,6 @@ $price = get_field('prix', $id); // Prix
                 <p class="menus__itemPrice menus__itemPrice--small"><?php echo $price_boisson ?>€</p>
             </div>
         <?php endif;
-    endif; ?>
+    endif;
+    ?>
 </li>

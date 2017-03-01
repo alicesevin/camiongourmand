@@ -1,53 +1,77 @@
 .cover {
-
-  height: 572px;
-  background: #000;
   width: 100%;
   position: relative;
+  margin-top: 68px;
+}
 
-  &__tryptique{
-    position: relative;
-    display: block;
-    height: 120px;
+.cover__container {
+  position: relative;
+  display: block;
+  height: 220px;
+  background: center center no-repeat;
+  background-size: cover;
+  cursor: pointer;
+  &-tryptique {
+    &:nth-child(2) {
+      margin: 10px auto;
+    }
     @media screen and (min-width: $md-min) {
       width: 33%;
       float: left;
       height: 100%;
+      &:nth-child(2) {
+        margin: 0;
+      }
     }
   }
+}
 
-  &__title {
+.cover__title {
 
-    text-align: center;
-    color: #fff;
-    position: absolute;
-    top:50%;
-    width: 100%;
-    transform: translateY(-50%);
-    font-family: $font-secondary;
-    @include rem(font-size, $coverTitle);
-    font-weight: $semibold;
+  text-align: center;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  @include box-sizing();
+  transform: translateY(-50%);
+  font-family: $font-secondary;
+  @include rem(font-size, $coverTitle);
+  font-weight: $semibold;
+  @media screen and (min-width: $md-min) {
+    padding: 20px;
+    word-break: break-word;
+    @include rem(font-size, $coverTitleMd);
+  }
+
+}
+
+.cover__subtitle {
+  display: block;
+  @include rem(font-size, $coverSubtitle);
+  @include rem(letter-spacing, 1px);
+  font-family: $font-primary;
+  text-transform: uppercase;
+  margin-top: 30px;
+}
+
+.cover__icon {
+  display: block;
+}
+
+.cover__nav {
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+
+.main-home{
+  .cover{
     @media screen and (min-width: $md-min) {
-      padding: 20px;
-      word-break: break-word;
+      height: 406px;
     }
-
   }
-
-  &__subtitle {
-    display: block;
-    @include rem(font-size, $coverSubtitle);
-    @include rem(letter-spacing, 1px);
-    font-family: $font-primary;
-    text-transform: uppercase;
-    margin-top: 30px;
-  }
-
-  &__icon {
-    display: block;
-  }
-
-  &__nav {
-
+  .cover__container{
+    height: 120px;
   }
 }

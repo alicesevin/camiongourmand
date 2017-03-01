@@ -662,66 +662,65 @@ if( function_exists('acf_add_local_field_group') ):
         'title' => 'Séparations',
         'fields' => array (
             array (
-                'key' => 'field_5883ca527bd3a',
-                'label' => 'Séparation',
-                'name' => 'separation',
-                'type' => 'true_false',
-                'instructions' => 'Séparer les éléments des menus avec des images',
-                'required' => 0,
-                'conditional_logic' => 0,
-                'wrapper' => array (
-                    'width' => '50',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'message' => 'Ajouter des images pour séparer les éléments',
-                'default_value' => 0,
-            ),
-            array (
-                'key' => 'field_5883ca517bd39',
-                'label' => 'Tous les',
-                'name' => 'tous_les',
-                'type' => 'number',
-                'instructions' => '',
-                'required' => 0,
-                'conditional_logic' => array (
-                    array (
-                        array (
-                            'field' => 'field_5883ca527bd3a',
-                            'operator' => '==',
-                            'value' => '1',
-                        ),
-                    ),
-                ),
-                'wrapper' => array (
-                    'width' => '50',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'default_value' => '',
-                'placeholder' => 3,
-                'prepend' => '',
-                'append' => 'éléments',
-                'min' => '',
-                'max' => '',
-                'step' => '',
-            ),
-            array (
                 'key' => 'field_5883ca4f7bd38',
                 'label' => 'Images',
                 'name' => 'images',
                 'type' => 'gallery',
                 'instructions' => 'Images pour les séparations',
                 'required' => 0,
-                'conditional_logic' => array (
-                    array (
-                        array (
-                            'field' => 'field_5883ca527bd3a',
-                            'operator' => '==',
-                            'value' => '1',
-                        ),
-                    ),
+                'wrapper' => array (
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
                 ),
+                'min' => '',
+                'max' => '',
+                'insert' => 'append',
+                'library' => 'all',
+                'min_width' => '',
+                'min_height' => '',
+                'min_size' => '',
+                'max_width' => '',
+                'max_height' => '',
+                'max_size' => '',
+                'mime_types' => '',
+            ),
+        ),
+        'location' => array (
+            array (
+                array (
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'page',
+                ),
+                array (
+                    'param' => 'page',
+                    'operator' => '!=',
+                    'value' => '4',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'side',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+        'active' => 1,
+        'description' => '',
+    ));
+
+    acf_add_local_field_group(array (
+        'key' => 'group_5883cc0004e99',
+        'title' => 'Carousel',
+        'fields' => array (
+            array (
+                'key' => 'field_5883ca4f7bd41',
+                'label' => 'Images',
+                'name' => 'images_carousel',
+                'type' => 'gallery',
+                'instructions' => 'Images du carousel',
+                'required' => 0,
                 'wrapper' => array (
                     'width' => '',
                     'class' => '',
@@ -790,6 +789,22 @@ if( function_exists('acf_add_local_field_group') ):
                 'name' => 'instagram',
                 'type' => 'url',
                 'instructions' => 'Adresse instagram',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array (
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'placeholder' => '',
+            ),
+            array (
+                'key' => 'field_5883f8eb855ce',
+                'label' => 'Take it easy',
+                'name' => 'takeit',
+                'type' => 'url',
+                'instructions' => 'Adresse Take it easy',
                 'required' => 0,
                 'conditional_logic' => 0,
                 'wrapper' => array (
