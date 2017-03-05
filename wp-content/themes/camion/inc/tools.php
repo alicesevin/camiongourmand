@@ -8,6 +8,7 @@ defined( 'ABSPATH' ) OR exit;
 
 function clean_head()
 {
+    show_admin_bar(false);
     define('DISALLOW_FILE_EDIT', true);
     remove_action('wp_head', 'feed_links_extra', 3);
     remove_action('wp_head', 'feed_links', 2);
@@ -151,5 +152,15 @@ function clean_images($content)
 {
     return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
 }
+function get_menus( $atts ) {
 
-?>
+    $a = shortcode_atts( array(
+        'liste' => ''
+    ), $atts );
+
+    ob_start();
+    set_query_var('liste', $a['liste']);
+    get_template_part( 'templates/menu' );
+    return ob_get_clean();
+}
+add_shortcode( 'menu', 'get_menus' );

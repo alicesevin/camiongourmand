@@ -5,12 +5,20 @@
   display: none;
   padding: 20px 0;
 
-  @media screen and (min-width: $md-min) {
+  &.head__menu-open {
     display: block;
+    height: 100vh;
+    padding-top: 10vh;
+  }
+  @media screen and (min-width: $md-min) {
+    display: inline-block;
+    padding: 0;
+    margin-left: 10px;
   }
 
-  &__nav{
+  &__nav {
     @media screen and (min-width: $md-min) {
+      position: relative;
       display: inline-block;
     }
   }
@@ -38,6 +46,8 @@
 
     @media screen and (min-width: $md-min) {
       display: inline-block;
+      margin-top: 0;
+      margin-left: 20px;
     }
 
   }
@@ -54,7 +64,6 @@
       @include rem(letter-spacing, 1.5px);
       font-weight: $medium;
       text-transform: uppercase;
-
       a {
 
         display: block;
@@ -66,11 +75,18 @@
     @media screen and (min-width: $md-min) {
 
       li {
-        @include rem(font-size, $mdMenuBold);
+        @include rem(font-size, $menuBoldMd);
+        @include rem(letter-spacing, 1px);
         font-weight: $regular;
         display: inline-block;
         margin: 4px 7px;
 
+        &:nth-child(2) {
+          margin-right: 80px;
+        }
+        &:nth-child(3) {
+          margin-left: 80px;
+        }
         a {
           padding: 4px 7px;
 
@@ -80,4 +96,8 @@
 
   }
 
+}
+.nav-point{
+  margin-top: -75px;
+  position: absolute;
 }

@@ -1,7 +1,7 @@
 .footer {
 
   &__container {
-
+    position: relative;
     background: $g2Light;
     padding: 30px;
     text-align: center;
@@ -49,4 +49,52 @@
 
   }
 
+}
+.footer__bg{
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  left: 0;
+  top:0;
+  right: 0;
+}
+.footer__sociaux .footer__sociauxLinks li{
+  @include rem(font-size, 24px);
+  margin: 0 7px;
+}
+.footer__bgIcon{
+  position: absolute;
+  @include rem(font-size, $bgIconBig);
+  opacity: 0.2;
+  &:first-child{
+    display: none;
+  }
+  &:nth-child(2){
+    transform: rotate(40deg);
+    top:15%;
+    left: 15%;
+  }
+  &:last-child{
+    top:40%;
+    right: -20px;
+  }
+  @media screen and (min-width: $md-min) {
+    @include rem(font-size, $bgIconBigMd);
+    &:first-child{
+      display: block;
+      left: -25px;
+      transform: rotate(-10deg);
+      bottom:20%;
+    }
+    &:nth-child(2){
+      @include rem(font-size, $bgIconMediumMd);
+      left: 35%;
+    }
+    &:last-child{
+      right: -70px;
+    }
+  }
 }

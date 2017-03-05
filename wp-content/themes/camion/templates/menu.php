@@ -2,13 +2,15 @@
 /**
  * Detail element du menu
  **/
+$liste = get_query_var('liste');
 $id = $post->ID;
 $type = wp_get_post_terms($id, 'type', array("fields" => "slugs")); // Formule ?
 $type = (is_array($type) && isset($type[0])) ? $type[0] : ''; // Véirfie si il y a une valeur
 $price = get_field('prix', $id); // Prix
+$class = ($class) ? ' menus__item-' . $class : '';
 ?>
-<!-- Nouvel élément -->
-<li class="menus__item">
+<!-- Menu -->
+<li class="menus__item<?php echo $class ?>">
     <div class="menus__itemLine">
         <!-- Titre -->
         <strong class="menus__itemTitle"><?php echo get_the_title() ?></strong>
@@ -40,6 +42,5 @@ $price = get_field('prix', $id); // Prix
                 <p class="menus__itemPrice menus__itemPrice--small"><?php echo $price_boisson ?>€</p>
             </div>
         <?php endif;
-    endif;
-    ?>
+    endif; ?>
 </li>

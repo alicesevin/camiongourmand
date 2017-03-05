@@ -17,7 +17,7 @@ if ($images && count($images) > 0):
                     }
                     ?>
                     <div class="carousel__containerImg<?php echo $classImg; ?>">
-                        <img src="<?php echo $image['url'] ?>" alt="<?php echo $image['name'] ?>">
+                        <img <?php if($image['width']<=$image['height']) echo 'class="vert"'?> src="<?php echo $image['url'] ?>" alt="<?php echo $image['name'] ?>">
                     </div>
                     <?php
                     $indexCarousel++;
@@ -25,8 +25,8 @@ if ($images && count($images) > 0):
             </div>
             <div class="carousel__nav">
                 <div class="carousel__navContainer">
-                    <a class="carousel__navArrow carousel__navArrow-left" href="#"><</a>
-                    <a class="carousel__navArrow carousel__navArrow-right" href="#">></a>
+                    <a class="carousel__navArrow carousel__navArrow-left icon-arrow" href="#"></a>
+                    <a class="carousel__navArrow carousel__navArrow-right icon-arrow" href="#"></a>
                 </div>
             </div>
         </div>
