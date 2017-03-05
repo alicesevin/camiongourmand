@@ -4,6 +4,7 @@ global $instagram;
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
+<!-- HEAD -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,37 +22,44 @@ global $instagram;
           content="<?php echo get_template_directory_uri(); ?>/dev/images/win8-tile-icon.png">
 
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
-
     <?php wp_head(); ?>
-
 </head>
 
+<!-- BODY -->
 <body <?php body_class(); ?>>
 
+<!-- CONTAINER -->
 <div id="container">
 
+    <!-- HEADER -->
     <header class="head">
 
         <div class="head__group">
 
             <div class="head__bar">
 
-            <div class="head__barLogo">
-                <a href="<?php echo home_url(); ?>">
-                    <img src="<?php echo get_stylesheet_directory_uri() ?>/dist/img/logo.png"
-                         alt="<?php bloginfo('name'); ?>">
-                </a>
+                <!-- HEADER - LOGO -->
+                <div class="head__barLogo">
+                    <a href="<?php echo home_url(); ?>">
+                        <img src="<?php echo get_stylesheet_directory_uri() ?>/dist/img/logo.png"
+                             alt="<?php bloginfo('name'); ?>">
+                    </a>
+                </div>
+
+                <!-- HEADER - BURGER -->
+                <div class="head__barBurger">
+                    <span class="menu__burger-first"></span>
+                    <span class="menu__burger-second"></span>
+                    <span class="menu__burger-third"></span>
+                </div>
+
             </div>
 
-            <div class="head__barBurger head__barBurger-close">
-                <span class="menu__burger-first"></span>
-                <span class="menu__burger-second"></span>
-                <span class="menu__burger-third"></span>
-            </div>
 
-            </div>
-
+            <!-- HEADER - MENU -->
             <div class="head__menu menu">
+
+                <!-- HEADER - MENU - Nav -->
 
                 <?php wp_nav_menu(array(
                     'menu_id' => 'main-nav',
@@ -68,14 +76,24 @@ global $instagram;
                 </div>
 
 
+                <!-- HEADER - MENU - Sociaux -->
+
                 <?php if ($facebook || $instagram): ?>
                     <div class="menu__sociaux">
                         <ul class="menu__sociauxLinks">
-                            <li><a class="icon__sociaux icon-facebook" href="#">Facebook</a></li>
-                            <li><a class="icon__sociaux icon-instagram" href="#">Instagram</a></li>
+                            <?php if ($facebook): ?>
+                                <li><a target="_blank" class="icon__sociaux icon-facebook"
+                                       href="<?php echo $facebook ?>"></a></li>
+                            <?php endif;
+                            if ($instagram): ?>
+                                <li><a target="_blank" class="icon__sociaux icon-instagram"
+                                       href="<?php echo $instagram ?>"></a></li>
+                            <?php endif; ?>
                         </ul>
                     </div>
                 <?php endif; ?>
+
+                <!-- HEADER - MENU - Adresse -->
 
                 <div class="menu__adress">
                     <p>

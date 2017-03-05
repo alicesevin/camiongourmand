@@ -5,7 +5,7 @@
 $sm-min: 576px;
 $md-min: 768px;
 $lg-min: 992px;
-$xlg-min: 1200px;
+$xlg-min: 1240px;
 
 /**
 * Colors
@@ -47,7 +47,7 @@ $font-secondary: 'Amatica SC', cursive;
 //Sizes
 $menuLogo : 20px;
 $menuBold : 16px;
-$mdMenuBold : 12px;
+$menuBoldMd : 12px;
 $menuReg : 14px;
 
 $sectionTitle : 25px;
@@ -66,6 +66,13 @@ $menusItemDescription : 14px;
 $menusItemPrice : 16px;
 $menusItemPriceDetail : 12px;
 $menusItemPriceSmall : 10px;
+
+$bgIconSmall :40px;
+$bgIconMedium :55px;
+$bgIconBig :70px;
+$bgIconSmallMd :60px;
+$bgIconMediumMd :75px;
+$bgIconBigMd :90px;
 
 $footerTitle : 25px;
 

@@ -11,22 +11,34 @@ $content = get_the_content();
 $other_pages = get_posts(array('fields' => 'ids', 'post_type' => 'page', 'post__not_in' => array(get_the_ID())));
 $other_pages = array_reverse($other_pages);
 ?>
-
+<!-- MAIN -->
 <main id="<?php echo $post_type ?>" class="main main-home">
     <?php echo get_template_part('templates/cover'); ?>
     <?php if ($content): ?>
-        <section class="section section-histoire" id="notre-histoire">
+        <!-- MAIN - HISTOIRE -->
+        <div class="nav-point" id="notre-histoire"></div>
+        <section class="section section-histoire">
+            <!-- MAIN - HISTOIRE - Description -->
             <h1 class="section__title">Notre histoire</h1>
             <p class="section__description"><?php the_content() ?></p>
+            <!-- MAIN - HISTOIRE - Background -->
+            <?php
+            set_query_var('section', 'histoire');
+            set_query_var('icons', array('champi','poulet','oeuf'));
+            echo get_template_part('templates/background'); ?>
         </section>
     <?php endif;
     echo get_template_part('templates/carousel');
     if (count($other_pages) > 0): ?>
-    <section class="section section-trouver" id="nous-trouver">
+    <!-- MAIN - NOUS TROUVER -->
+    <div class="nav-point" id="nous-trouver"></div>
+    <section class="section section-trouver">
+        <!-- MAIN - NOUS TROUVER - Description -->
         <h1 class="section__title">Nous trouver</h1>
         <div class="section__detailPart section__detailPart-map">
             <?php echo do_shortcode('[wpgmza id="1"]') ?>
         </div>
+        <!-- MAIN - NOUS TROUVER - Horaires -->
         <?php foreach ($other_pages as $page):
             $fermeture = ($restau == $page) ? '<p>Fermé le samedi et le dimanche</p>' : '<p>Suivez-nous sur <span class="section__detailBold section__detailBold-yellow">Facebook</span></p>';
             $coord = get_field('adresse', $page);
@@ -70,6 +82,11 @@ $other_pages = array_reverse($other_pages);
             <?php endif;
         endforeach;
         endif; ?>
+        <!-- MAIN - NOUS TROUVER - Background -->
+        <?php
+        set_query_var('section', 'trouver');
+        set_query_var('icons', array('book','confiture'));
+        echo get_template_part('templates/background'); ?>
     </section>
 </main>
 <?php get_footer(); ?>

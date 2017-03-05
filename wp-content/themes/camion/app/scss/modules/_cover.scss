@@ -1,7 +1,6 @@
 .cover {
   width: 100%;
   position: relative;
-  margin-top: 68px;
 }
 
 .cover__container {
@@ -10,8 +9,8 @@
   height: 220px;
   background: center center no-repeat;
   background-size: cover;
-  cursor: pointer;
   &-tryptique {
+    cursor: pointer;
     &:nth-child(2) {
       margin: 10px auto;
     }
@@ -27,44 +26,100 @@
 }
 
 .cover__title {
-
-  text-align: center;
-  color: #fff;
-  position: absolute;
-  top: 50%;
+  display: table-cell;
+  vertical-align: middle;
   width: 100%;
   @include box-sizing();
-  transform: translateY(-50%);
   font-family: $font-secondary;
   @include rem(font-size, $coverTitle);
   font-weight: $semibold;
-  @media screen and (min-width: $md-min) {
+  color: #fff;
+  @media screen and (min-width: $sm-min) {
+    @include rem(font-size, $coverTitle);
     padding: 20px;
     word-break: break-word;
+  }
+  @media screen and (min-width: $md-min) {
     @include rem(font-size, $coverTitleMd);
   }
 
 }
-
 .cover__subtitle {
   display: block;
   @include rem(font-size, $coverSubtitle);
   @include rem(letter-spacing, 1px);
   font-family: $font-primary;
   text-transform: uppercase;
-  margin-top: 30px;
+  margin-top: 10px;
+  @media screen and (min-width: $sm-min) {
+    margin-top: 20px;
+  }
 }
 
 .cover__icon {
   display: block;
+  $color: $lightColor;
+  @include rem(font-size, 25px);
+  margin-top: 10px;
+  &.icon-vague{
+    @include rem(font-size, 3px);
+    width: 60px;
+    margin: 10px auto 0;
+    font-weight: 900;
+    overflow: hidden;
+  }
+  @media screen and (min-width: $sm-min) {
+    @include rem(font-size, 30px);
+    margin-top: 20px;
+    &.icon-vague{
+      @include rem(font-size, 6px);
+      width: auto;
+    }
+  }
 }
 
 .cover__nav {
+  text-align: center;
   height: 100%;
   width: 100%;
-  display: block;
+  display: table;
 }
 
+.cover__navIcon{
+  display: block;
+  color: $lightColor;
+  @include rem(font-size, 10px);
+  font-weight: 900;
+  position: absolute;
+  transform: translateX(-50%);
+  bottom: 15px;
+  left: 50%;
+  &.icon__arrow-right,
+  &.icon__arrow-left{
+    transform: rotate(-90deg);
+    bottom: 55px;
+    left: auto;
+    right: 10%;
+  }
+  @media screen and (min-width: $md-min) {
+    @include rem(font-size, 12px);
+    bottom: 80px;
+    left: 50%;
+    &.icon__arrow-left{
+      transform: rotate(90deg);
+      bottom: 80px;
+      left: 50%;
+      right: auto;
+      margin-left: -15px;
+    }
+    &.icon__arrow-right{
+      bottom: 80px;
+      left: 50%;
+      right: auto;
+      margin-left: -10px;
+    }
+  }
+}
 .main-home{
   .cover{
     @media screen and (min-width: $md-min) {
@@ -73,5 +128,19 @@
   }
   .cover__container{
     height: 120px;
+    @media screen and (min-width: $md-min) {
+      height: 100%;
+    }
+  }
+}
+.main:not(.main-home){
+  .cover__container {
+    height: 160px;
+    @media screen and (min-width: $sm-min) {
+      height: 280px;
+    }
+    @media screen and (min-width: $md-min) {
+      height: 410px;
+    }
   }
 }

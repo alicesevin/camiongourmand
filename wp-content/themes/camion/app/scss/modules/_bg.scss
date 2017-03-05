@@ -1,0 +1,109 @@
+.section__bg {
+  position: absolute;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+}
+
+.section__bgIcon {
+  @include rem(font-size, $bgIconMedium);
+  opacity: 0.15;
+  position: absolute;
+  @media screen and (min-width: $md-min) {
+    @include rem(font-size, $bgIconMediumMd);
+  }
+}
+
+.section__bg-menus .section__bgIcon {
+  &:first-child {
+    left: 50px;
+    transform: rotate(-10deg);
+    top: 120px;
+  }
+  &:last-child {
+    top: 20px;
+    left: 55%;
+    transform: rotate(10deg);
+  }
+  @media screen and (min-width: $md-min) {
+
+  }
+}
+
+.section__bg-histoire .section__bgIcon {
+  @include rem(font-size, $bgIconMedium);
+  &:first-child {
+    left: -20px;
+    transform: rotate(15deg);
+    top: 15%;
+    @include rem(font-size, $bgIconBig);
+  }
+  &:nth-child(2) {
+    transform: rotate(-290deg);
+    @include rem(font-size, $bgIconBig);
+    top: 60%;
+    left: 80%;
+  }
+  &:last-child {
+    display: none;
+  }
+  @media screen and (min-width: $md-min) {
+    @include rem(font-size, $bgIconMediumMd);
+    &:first-child{
+      left: -30px;
+      top: 30%;
+      @include rem(font-size, $bgIconBigMd);
+    }
+    &:nth-child(2) {
+      top:10%;
+      left:55%;
+      @include rem(font-size, $bgIconMediumMd);
+    }
+    &:last-child {
+      display: block;
+      bottom: -30px;
+      right: 3%;
+    }
+  }
+}
+
+.section__bg-trouver{
+  z-index: -1;
+}
+.section__bg-trouver .section__bgIcon {
+  &:first-child {
+    left: 30px;
+    top: 35%;
+    @include rem(font-size, $bgIconBig);
+  }
+  &:last-child {
+    top: 20px;
+    right: 15%;
+    transform: rotate(10deg);
+  }
+  @media screen and (min-width: $sm-min) {
+    &:first-child {
+      left: 20px;
+      top: 35px;
+    }
+    &:last-child {
+      top: 10px;
+      right: 28%;
+    }
+  }
+  @media screen and (min-width: $md-min) {
+    &:first-child{
+      @include rem(font-size, $bgIconBigMd);
+      top: 55px;
+    }
+    &:last-child {
+      top: 20px;
+      right: 8%;
+    }
+  }
+}

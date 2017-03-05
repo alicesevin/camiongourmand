@@ -27,6 +27,19 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+    &.vert{
+      max-width: 100%;
+      max-height: none;
+    }
+    @media screen and (min-width: $xlg-min){
+      max-width: 100%;
+      max-height: none;
+      &.vert{
+        max-width: 100%;
+        max-height: none;
+      }
+    }
   }
   &-active {
     opacity: 1;
@@ -57,17 +70,30 @@
 
 .carousel__navArrow {
   position: absolute;
-  top: 50%;
+  top: 60%;
   color: $lightColor;
-  font-size: 20px;
   transform: translateY(-50%);
   height: 100%;
-  padding: 0 4%;
   line-height: 25em;
+  @include rem(font-size, 12px);
   &-left {
     left: 0;
+    padding: 0 5% 0 3%;
+    &:before{
+      transform: rotate(90deg);
+      display: block;
+    }
   }
   &-right {
     right: 0;
+    padding: 0 3% 0 5%;
+    &:before{
+      transform: rotate(-90deg);
+      display: block;
+    }
+  }
+  @media screen and (min-width: $md-min){
+    @include rem(font-size, 20px);
+    top: 50%;
   }
 }

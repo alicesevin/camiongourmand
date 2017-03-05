@@ -7,22 +7,30 @@
   background: $headerBg;
   text-align: center;
   color: $lightColor;
+  border-bottom: 14px solid $veryLightColor;
+  @media screen and (min-width: $md-min) {
+    border-bottom-width: 22px;
+  }
   &__bar {
 
-    height:100%;
+    height: 100%;
     position: relative;
     padding: 20px 20px 35px;
-    border-bottom: 13px solid $veryLightColor;
-
+    @media screen and (min-width: $md-min) {
+      display: block;
+      padding: 0;
+    }
     &Logo {
-
       width: 85px;
       display: inline-block;
       position: absolute;
       top: 25px;
       left: 50%;
       transform: translateX(-50%);
-
+      @media screen and (min-width: $md-min) {
+        width: 125px;
+        top: 15px;
+      }
       img {
         width: 100%;
         height: auto;
@@ -30,41 +38,7 @@
 
     }
 
-    &Burger {
-      float: right;
-      cursor: pointer;
-      span {
-        width: 25px;
-        height: 2px;
-        background: $lightColor;
-        display: block;
-        transform-origin: 41% 50%;
-        &:nth-child(2){
-          margin: 6px auto;
-        }
-      }
-      &-close {
 
-      }
-      &-first {
-        transform: rotate(45deg);
-      }
-      &-second {
-        display: none;
-      }
-      &-third {
-        transform: rotate(-45deg);
-      }
-
-      @media screen and (min-width: $md-min) {
-        display: none;
-      }
-
-    }
-
-    @media screen and (min-width: $md-min) {
-      display: inline-block;
-    }
 
   }
 
@@ -76,4 +50,45 @@
     //Navigation in modules/navigation
   }
 
+}
+
+
+.head__barBurger{
+
+  float: right;
+  cursor: pointer;
+
+  @media screen and (min-width: $md-min) {
+    display: none;
+  }
+
+  span{
+    width: 25px;
+    height: 2px;
+    background: $lightColor;
+    display: block;
+    opacity: 1;
+    transition: all .4s, transform .4s;
+    transform-origin: 45% 50%;
+    &:nth-child(2) {
+      margin: 6px auto;
+    }
+  }
+  &-open {
+    .menu__burger{
+      &-first {
+        transform: rotate(45deg);
+        transition: all .4s;
+      }
+      &-second {
+        opacity: 0;
+        transition: all .4s;
+        display: none;
+      }
+      &-third {
+        transform: rotate(-45deg);
+        transition: alls .4s;
+      }
+    }
+  }
 }
