@@ -51,18 +51,18 @@ module.exports = function () {
 
     var timeline = function () {
 
-        if (inSection('.section-histoire')) {
-            console.log('histoire');
-            //HISTOIRE SCROLL INTERACTIONS
-            console.log('yeeeee')
-
+        if (inSection('.section-histoire', 550)) {
+            console.log('histoire')
+            tl.to($('.section__description'), {alpha: 1, ease: Power4.easeOut})
         } else if (inSection('.section-trouver') && !trouverActive) {
+
         }
-        if (inSection('.section-trouver')) {
+        if (inSection('.section-trouver'), 100) {
             console.log('trouver');
             //NOUS TROUVER SCROLL INTERACTIONS
-            if(!trouverActive){
-                tl.from(".section-trouver .section__detailPart-map", 1, {alpha: 0, x: -30}, .3);
+            tl.from($('.section__detail'), 0.5, {alpha: 1, x: 30, ease: Power4.easeOut})
+            if (!trouverActive) {
+                tl.from(".section-trouver .section__detailPart-map", 1, {alpha: 0, x: -30}, .3)
                 trouverActive = true;
             }
 
@@ -76,11 +76,11 @@ module.exports = function () {
 
         }
 
-        function inSection(elem) {
+        function inSection(elem, delay) {
             var elemTarget = $(elem);
             if (elemTarget.length) {
                 var elemTargetH = elemTarget.outerHeight(),
-                    deltaIn = elemTarget.offset().top - $('header').height(),
+                    deltaIn = elemTarget.offset().top - $('header').height() - delay,
                     deltaOut = deltaIn + elemTargetH - $('header').height();
 
                 if ($(window).scrollTop() > deltaIn && $(window).scrollTop() < deltaOut) {
