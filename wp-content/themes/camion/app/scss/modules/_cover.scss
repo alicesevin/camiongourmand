@@ -11,8 +11,8 @@
   background-size: cover;
 
   img {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 100%;
     position: absolute;
     z-index: -1;
     left: 50%;
@@ -49,12 +49,13 @@
     }
   }
   img {
-
+    width: 100%;
+    height: auto;
     &:hover {
       transform: translate(-50%, -50%) scale(1.05);
       transition: transform 1s;
     }
-    @media screen and (min-width: $lg-min) {
+    @media screen and (min-width: $md-min) {
       height: 100%;
       width: auto;
     }

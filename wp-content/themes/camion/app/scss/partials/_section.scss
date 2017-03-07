@@ -189,8 +189,10 @@
   }
   .section__detailTitle,
   .section__detailContainer {
-    padding: 0 20px;
     @media screen and (min-width: $md-min) {
+      padding: 0 40px;
+    }
+    @media screen and (min-width: $lg-min) {
       padding: 0 80px;
     }
     &-img {
