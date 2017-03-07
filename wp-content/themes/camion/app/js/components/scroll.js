@@ -51,18 +51,20 @@ module.exports = function () {
 
     var timeline = function () {
 
-        if (inSection('.section-histoire', 550)) {
+        if (inSection('.section-histoire', 350)) {
             console.log('histoire')
-            tl.to($('.section__description'), {alpha: 1, ease: Power4.easeOut})
+            tl.to(('.section__description'), 0.3, {alpha: 1, ease: Power4.easeOut})
+
         } else if (inSection('.section-trouver') && !trouverActive) {
 
         }
-        if (inSection('.section-trouver'), 100) {
+        if (inSection('.section-trouver', 100)) {
             console.log('trouver');
             //NOUS TROUVER SCROLL INTERACTIONS
-            tl.from($('.section__detail'), 0.5, {alpha: 1, x: 30, ease: Power4.easeOut})
+            tl.to($('.section__detail')[0], 1, {alpha: 1, x: 30, ease: Power4.easeOut})
+                .to($('.section__detail')[1], 0.3, {alpha: 1, ease: Power4.easeOut}, 0.2);
             if (!trouverActive) {
-                tl.from(".section-trouver .section__detailPart-map", 1, {alpha: 0, x: -30}, .3)
+                tl.from(".section-trouver .section__detailPart-map", 1, {alpha: 1, x: -30})
                 trouverActive = true;
             }
 
