@@ -27,15 +27,16 @@
 
 .menus__itemTitle {
   float: left;
-  width: 50%;
+  width: 60%;
   @include rem(font-size, $menusItemTitle);
   font-weight: $medium;
   margin-bottom: 5px;
+  @include rem(line-height, 20px);
 }
 
 .menus__itemPrice {
   float: left;
-  width: 50%;
+  width: 40%;
   text-align: right;
   @include rem(font-size, $menusItemPrice);
   &--small {
@@ -47,13 +48,32 @@
   clear: both;
   width: 60%;
   @include rem(font-size, $menusItemDescription);
+  @include rem(line-height, 16px);
   margin-bottom: 5px;
+  font-weight: 300;
 }
 
 .menus__itemIntitule {
   float: left;
   width: 50%;
   @include rem(font-size, $menusItemPriceDetail);
+}
+
+.menus__item-title {
+  margin: 40px auto 23px;
+  @include rem(font-size, $sectionDetailTitle);
+  @include rem(letter-spacing, 1.8px);
+  text-transform: uppercase;
+  font-weight: $bold;
+  letter-spacing: 2.1px;
+}
+
+.main-restaurant .menus__item-title {
+  color: $g1Medium;
+}
+
+.main-camion .menus__item-title{
+  color: $g3Medium;
 }
 
 .menus__item-img {
