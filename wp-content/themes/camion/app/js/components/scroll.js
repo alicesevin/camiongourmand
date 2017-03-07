@@ -1,45 +1,50 @@
 /**
  * Created by Thib on 06/03/2017.
  */
-var ScrollMagic = require('scrollmagic');
 var $ = require('jquery');
+var TweenMax = require('gsap');
 
-
+//section__bgIcon icon-champi
 module.exports = function () {
 
-    $(document).ready(function () {
-        scroll()
-    });
+    function animations() {
 
-    function scroll() {
-        //Enter all elements here that you want to be scroll and set their offset
+        var $icons = $('.section__bg').find('i');
+        var animationLiberty = 0.1;   // j'avais pas de nom de variable
 
-        var elementsTab = [
-            // {name: '.cover', offset: 0},
-            {name: '.section-histoire', offset: 200},
-            {name: '.section-trouver', offset: 200}
-        ];
-
-        function topPosition(element) {
-            return $(element).offset().top;
+        function iconsParralaxe() {
+            TweenMax.to($icons, 0.5, {y: - $('body').scrollTop() * animationLiberty});
         }
 
-        //fade your text
-        // function fadeText (text) {
-        //     text.css('opacity', '1')
-        // }
-
-        var controller = new ScrollMagic.Controller();
-        for (var i = 0; i <= elementsTab.length - 1; i++) {
-
-            new ScrollMagic.Scene({
-                duration: 2000,
-                offset: topPosition(elementsTab[i].name) - elementsTab[i].offset
-            })
-
-                .setPin(elementsTab[i].name)
-                .addTo(controller)
-                // .on('start', fadeText($(elementsTab[i].name)))
+        function fadeText(element) {
+            for (i = 0; i <= element.length; i++) {
+                console.log(element.offset().top)
+                if (element.offset().top === $(window).scrollTop()) {
+                    console.log('done')
+                }
+            }
         }
+
+        $(window).on('scroll', function () {
+            iconsParralaxe();
+            fadeText($('.section__bg'));
+        });
     }
+
+    function smoothScroll() {
+
+        $('.cover__nav-link').on('click', function () {
+            var page = $(this).attr('href');
+            $('html, body').animate({scrollTop: $(page).offset().top}, 300);
+            return false;
+        });
+
+    }
+
+    $(document).ready(function () {
+
+        animations();
+        smoothScroll();
+
+    });
 };
