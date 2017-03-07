@@ -37,6 +37,9 @@
   @media screen and (min-width: $md-min) {
     @include rem(font-size, $regularTextMd);
   }
+  @media screen and (max-width: $md-min){
+    opacity: 1;
+  }
 
   strong {
     font-weight: $semibold;
@@ -62,6 +65,10 @@
   opacity: 0;
   text-align: left;
   overflow: hidden;
+
+  @media screen and (max-width: $md-min){
+    opacity: 1;
+  }
 }
 
 .section__detailTitle {
