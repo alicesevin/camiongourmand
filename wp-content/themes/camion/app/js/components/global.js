@@ -11,30 +11,35 @@ module.exports = function () {
         origin = location.origin;
         path = location.pathname;
 
+        if(window.location.hash) {
+            setTimeout(function () {
+                smoothScrollTo(window.location.hash);
+            }, 0);
+        }
         //GENERATE FAKE CONFIG FOR DEV ENV
         if (location.hostname == 'localhost') {
             localEnvConf();
         }
         //EVENTS
 
-        $('.menu-item').click(function (e) {
+        $('.menu-item').on('click', function (e) {
             e.preventDefault();
             var href = $(this).find('a').attr('href');
-            if ($('.current-menu-item').length > 1 && $(this).hasClass('current-menu-item')) {
-                var hash = href.split(origin + path)[1];
-                smoothScrollTo(hash);
-                window.location.hash = hash;
-            } else {
-                window.location.href = href;
+            if (href) {
+                if ($('.current-menu-item').length > 1 && $(this).hasClass('current-menu-item')) {
+                    var hash = href.split(origin + path);
+                    if (hash)
+                        smoothScrollTo(hash[1]);
+                } else {
+                    window.location.href = href;
+                }
             }
         });
         $('.cover__container-tryptique:nth-child(2)').on('click', function (e) {
             e.preventDefault();
-            var $target = $(e.currentTarget).find('.cover__nav');
-            smoothScrollTo($target.attr('href'));
+            var hash = $(this).find('.cover__nav').attr('href');
+            smoothScrollTo(hash);
         });
-
-        $(window).on('hashchange', verifyHash(window.location.hash));
 
     });
 
@@ -45,29 +50,24 @@ module.exports = function () {
         return true;
     };
 
-    var verifyHash = function (currentHash) {
-        console.log('hello');
-        var $links = $('.current_page_item');
-        if ($links && $links.length > 1) {
-            $.each($links, function (i, $link) {
-                var href = $($link).find('a').attr('href');
-                href = href.split(origin + path)[1];
-                if (!currentHash || currentHash != href) {
-                    $($link).removeClass('current_page_item');
-                } else {
-                    $($link).addClass('current_page_item');
-                    smoothScrollTo(currentHash);
+    var smoothScrollTo = function (x) {
+        var $x = $(x),
+            links = $('.current-menu-item');
+        if ($x.length > 0 && links.length > 1) {
+            links.removeClass('current_page_item');
+            $.each(links, function (i, v) {
+                var isActive = $(v).find('a').attr('href') == origin + x;
+                if (isActive) {
+                    $(v).addClass('current_page_item');
                 }
             });
-        }
-    };
-
-    var smoothScrollTo = function (x) {
-        var $x = $(x);
-        if ($x.length) {
-            $('body').animate({
+            $('html,body').animate({
                 scrollTop: $x.offset().top
+            }, 300, function () {
+                if (window.location.hash != x)
+                    window.location.hash = x;
             });
+            console.log($x.offset().top, $('html,body').scrollTop());
         }
     };
 };
