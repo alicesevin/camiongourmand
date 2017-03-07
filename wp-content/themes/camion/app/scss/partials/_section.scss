@@ -193,6 +193,9 @@
       padding: 0 40px;
     }
     @media screen and (min-width: $lg-min) {
+      padding: 0 60px;
+    }
+    @media screen and (min-width: $xlg-min) {
       padding: 0 80px;
     }
     &-img {

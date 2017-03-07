@@ -7,6 +7,7 @@ $id = $post->ID;
 $type = wp_get_post_terms($id, 'type', array("fields" => "slugs")); // Formule ?
 $type = (is_array($type) && isset($type[0])) ? $type[0] : ''; // Véirfie si il y a une valeur
 $price = get_field('prix', $id); // Prix
+$class = ($type != 'formule')?'nformule':'';
 $class = ($class) ? ' menus__item-' . $class : '';
 ?>
 <!-- Menu -->
