@@ -27,38 +27,25 @@ module.exports = function () {
 
     function animations() {
 
-        var $icons = $('.section__bg').find('i');
-        var animationLiberty = 0.1;   // j'avais pas de nom de variable
-        var animationsRandom = [];
+        var $icons = $('.section__bg').find('i'),
+            animationLiberty = 0.1,   // j'avais pas de nom de variable
+            animationsRandom = [];
 
         //pour que la osition y soit différente entre chaques élément
         for (i = 0; i <= $icons.length; i++) {
-            animationsRandom.push(Math.random() * (1+ i * 0.3))
+            animationsRandom.push(Math.random() * (1 + i * 0.3))
         }
 
         //parralaxe des icons
         function iconsParralaxe() {
-            for (i = 0; i <= $icons.length-1; i++) {
+            for (i = 0; i <= $icons.length - 1; i++) {
                 TweenMax.to($icons[i], animationsRandom[i], {y: -($('body').scrollTop()) * animationLiberty})
             }
             return false;
         }
 
-        function fadeText(elements) {
-            for (i = 0; i <= elements.length-1; i++) {
-                console.log(elements[i].offsetTop)
-                console.log($(window).scrollTop())
-                if ( $(window).scrollTop() === elements[i].offsetTop) {
-                    console.log(elements[i].offsetTop)
-                    console.log('yolo')
-                }
-            }
-        }
-
         $(window).on('scroll', function () {
             iconsParralaxe();
-            fadeText($('.section__description'));
-
         });
     }
 
@@ -84,6 +71,7 @@ module.exports = function () {
 
         if (inSection('.section-histoire')) {
             //HISTOIRE SCROLL INTERACTIONS
+            console.log('yeeeee')
 
         } else if (inSection('.section-trouver') && !trouverActive) {
             //NOUS TROUVER SCROLL INTERACTIONS

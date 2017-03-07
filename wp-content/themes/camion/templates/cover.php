@@ -51,7 +51,7 @@ $bg = wp_get_attachment_image_src(get_post_thumbnail_id(), 'large');
                 endif;
                 if ($page == $pages->posts[0]):?>
                     <div class="cover__container cover__container-tryptique">
-                        <a href="#notre-histoire" class="cover__nav">
+                        <a href="#notre-histoire" class="cover__nav cover__nav-link">
                             <h1 class="cover__title">
                                 L'univers
                                 <i class="cover__icon icon-vague"></i>
