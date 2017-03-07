@@ -29,7 +29,7 @@ module.exports = function () {
             animationLiberty = 0.1,   // j'avais pas de nom de variable
             animationsRandom = [];
 
-        //pour que la osition y soit différente entre chaques élément
+        //pour que la position y soit différente entre chaques élément
         for (i = 0; i <= $icons.length; i++) {
             animationsRandom.push(Math.random() * (1 + i * 0.3))
         }
@@ -37,7 +37,7 @@ module.exports = function () {
         //parralaxe des icons
         function iconsParralaxe() {
             for (i = 0; i <= $icons.length - 1; i++) {
-                TweenMax.to($icons[i], animationsRandom[i], {y: -($('body').scrollTop()) * animationLiberty})
+                TweenMax.to($icons[i], animationsRandom[i], {bottom: -($('body').scrollTop()) * animationLiberty})
             }
             return false;
         }
@@ -61,10 +61,9 @@ module.exports = function () {
         if (inSection('.section-trouver', 100)) {
             console.log('trouver');
             //NOUS TROUVER SCROLL INTERACTIONS
-            tl.to($('.section__detail')[0], 1, {alpha: 1, x: 30, ease: Power4.easeOut})
-                .to($('.section__detail')[1], 0.3, {alpha: 1, ease: Power4.easeOut}, 0.2);
+            // tl.to($('.section__detail'), 1, {alpha: 1, x: 30, ease: Power4.easeOut});
             if (!trouverActive) {
-                tl.from(".section-trouver .section__detailPart-map", 1, {alpha: 1, x: -30})
+                // tl.from(".section-trouver .section__detailPart-map", 1, {alpha: 1, x: -30})
                 trouverActive = true;
             }
 
