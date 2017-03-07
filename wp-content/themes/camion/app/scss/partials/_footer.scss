@@ -40,9 +40,15 @@
       text-transform: uppercase;
       display: inline-block;
       border: 1px solid $veryLightColor;
+      transition : background-color 1s, color 1s;
 
       @media screen and (min-width: $md-min) {
         margin-top: 40px;
+      }
+
+      &:hover{
+        background-color: $veryLightColor;
+        color: $g2Light;
       }
 
     }

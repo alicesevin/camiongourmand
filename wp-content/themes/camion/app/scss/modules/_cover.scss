@@ -9,6 +9,7 @@
   height: 220px;
   background: center center no-repeat;
   background-size: cover;
+  transition: transform 2s ;
   &-tryptique {
     cursor: pointer;
     &:nth-child(2) {
@@ -22,6 +23,13 @@
         margin: 0;
       }
     }
+  }
+  &:hover {
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    transform: scale(1.05);
   }
 }
 

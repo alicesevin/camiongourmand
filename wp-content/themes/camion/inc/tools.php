@@ -100,6 +100,21 @@ function remove_css_gallery($css)
  * SCRIPTS & STYLES
  *********************/
 
+// Add async attribute to script loaded from wp_enqueue_script
+
+function add_async_attribute($tag, $handle)
+{
+
+    if ( 'theme-script' !== $handle ){
+        return $tag;
+    }
+
+    return str_replace( ' src', ' async="async" src', $tag );
+
+}
+
+add_filter('script_loader_tag', 'add_async_attribute', 10, 2);
+
 function load_styles()
 {
 
@@ -164,3 +179,5 @@ function get_menus( $atts ) {
     return ob_get_clean();
 }
 add_shortcode( 'menu', 'get_menus' );
+
+
