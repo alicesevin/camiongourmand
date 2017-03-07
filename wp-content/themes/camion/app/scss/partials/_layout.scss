@@ -20,7 +20,7 @@ footer,
 main,
 section,
 div{
-  @include box-sizing;
+  @include box-sizing();
 }
 
 a{

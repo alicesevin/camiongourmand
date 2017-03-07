@@ -3,8 +3,6 @@ global $post;
 $post_type = ($post_type) ? get_query_var('post_type') : '';
 $subtitle = get_field('subtitle');
 $place = ($post_type == 'camion') ? 'Le camion' : 'Père & fils';
-$bg_home = wp_get_attachment_image_src(get_post_thumbnail_id(get_option('page_on_front')), 'large');
-$bg = wp_get_attachment_image_src(get_post_thumbnail_id(), 'large');
 ?>
 <section class="cover">
     <?php if ($post_type):
@@ -19,9 +17,7 @@ $bg = wp_get_attachment_image_src(get_post_thumbnail_id(), 'large');
                     <span class="cover__subtitle"><?php echo $subtitle ?></span>
                     <i class="cover__icon icon-<?php echo $icon ?>"></i>
                 </h1>
-                <?php if ($bg): ?>
-                    <img src="<?php echo $bg[0]; ?>" alt="<?php echo $place; ?>"/>
-                <?php endif; ?>
+                <?php echo wp_get_attachment_image(get_post_thumbnail_id(), 'large'); ?>
             </div>
         </div>
     <?php else:
@@ -42,9 +38,7 @@ $bg = wp_get_attachment_image_src(get_post_thumbnail_id(), 'large');
                                 <i class="cover__icon icon-<?php echo $icon ?>"></i>
                                 <i class="cover__navIcon icon__arrow-<?php echo $way ?> icon-arrow"></i>
                             </h1>
-                            <?php if ($bg): ?>
-                                <img src="<?php echo $bg[0]; ?>" alt="<?php echo $place; ?>"/>
-                            <?php endif; ?>
+                            <?php echo wp_get_attachment_image(get_post_thumbnail_id(), 'large'); ?>
                         </a>
                     </div>
                     <?php
@@ -57,9 +51,7 @@ $bg = wp_get_attachment_image_src(get_post_thumbnail_id(), 'large');
                                 <i class="cover__icon icon-vague"></i>
                                 <i class="cover__navIcon icon__arrow-bottom icon-arrow"></i>
                             </h1>
-                            <?php if ($bg_home): ?>
-                                <img src="<?php echo $bg_home[0]; ?>" alt="L'univers"/>
-                            <?php endif; ?>
+                            <?php echo wp_get_attachment_image_src(get_post_thumbnail_id(get_option('page_on_front')), 'large'); ?>
                         </a>
                     </div>
                 <?php endif;

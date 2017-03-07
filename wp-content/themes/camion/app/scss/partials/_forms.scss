@@ -1,0 +1,6 @@
+form{
+  @include placeholder{
+    color: $veryLightColor;
+    @include rem(letter-spacing,0.5px);
+  };
+}

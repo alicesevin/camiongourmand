@@ -23,7 +23,7 @@ $listes = get_terms(array(
         <!-- MAIN - HISTOIRE - Background -->
         <?php
         set_query_var('section', 'histoire');
-        set_query_var('icons', array('champi','poulet','oeuf'));
+        set_query_var('icons', array('champi', 'poulet', 'oeuf'));
         echo get_template_part('templates/background'); ?>
     </section>
     <!-- MAIN - CAROUSEL -->
@@ -80,7 +80,13 @@ $listes = get_terms(array(
                     //Add separation image if allowed to
                     if ($allowed) {
                         $img = '<li class="menus__item menus__item-img ">' .
-                            '<img src="' . $images[$indexMenusImg]['url'] . '" alt="' . $images[$indexMenusImg]['name'] . '">' .
+                            '<img srcset="' .
+                            $images[$indexMenusImg]['sizes']['small'] . ' 200w,' .
+                            $images[$indexMenusImg]['sizes']['medium'] . ' 600w,' .
+                            $images[$indexMenusImg]['sizes']['large'] . '1000w"' .
+                            'sizes="…"' .
+                            'src="' . $images[$indexMenusImg]['url'] . '"' .
+                            'alt="' . $images[$indexMenusImg]['name'] . '">' .
                             '</li>';
                         $indexMenusImg++;
                     }
@@ -103,13 +109,13 @@ $listes = get_terms(array(
         <section class="section section-menus">
             <h1 class="section__title">Nos menus</h1>
             <!-- MAIN - MENUS - Liste -->
-            <?php echo '<div class="section__column section__column-left">'.implode('', $listeMenusL).'</div>';
+            <?php echo '<div class="section__column section__column-left">' . implode('', $listeMenusL) . '</div>';
             if (count($listeMenusR) > 0)
-                echo '<div class="section__column section__column-right">'.implode('', $listeMenusR).'</div>'; ?>
+                echo '<div class="section__column section__column-right">' . implode('', $listeMenusR) . '</div>'; ?>
             <!-- MAIN - MENUS - Background -->
             <?php
             set_query_var('section', 'menus');
-            set_query_var('icons', array('camion','confiture'));
+            set_query_var('icons', array('camion', 'confiture'));
             echo get_template_part('templates/background'); ?>
         </section>
     <?php endif; ?>
