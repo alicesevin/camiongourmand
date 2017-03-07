@@ -4,7 +4,7 @@ $post_type = ($post_type) ? get_query_var('post_type') : '';
 $subtitle = get_field('subtitle');
 $place = ($post_type == 'camion') ? 'Le camion' : 'Père & fils';
 ?>
-<section class="cover">
+<section class="cover" role="region" aria-label="duplicate primary navigation">
     <?php if ($post_type):
         $icon = explode('-', $post->post_name);
         if (isset($icon[1]) && ($icon[1] == 'camion' || $icon[1] == 'restaurant')) {
@@ -31,8 +31,9 @@ $place = ($post_type == 'camion') ? 'Le camion' : 'Père & fils';
                 $bg = wp_get_attachment_image_src(get_post_thumbnail_id($page->ID), 'large');
                 if ($icon):
                     ?>
-                    <div class="cover__container cover__container-tryptique">
-                        <a href="<?php echo get_the_permalink($page->ID) ?>" class="cover__nav">
+                    <div class="cover__container cover__container-tryptique" role="menu"
+                         aria-label="duplicate primary menu">
+                        <a href="<?php echo get_the_permalink($page->ID) ?>" class="cover__nav" role="menuitem">
                             <h1 class="cover__title">
                                 <?php echo $place ?>
                                 <i class="cover__icon icon-<?php echo $icon ?>"></i>
@@ -44,8 +45,9 @@ $place = ($post_type == 'camion') ? 'Le camion' : 'Père & fils';
                     <?php
                 endif;
                 if ($page == $pages->posts[0]):?>
-                    <div class="cover__container cover__container-tryptique">
-                        <a href="#notre-histoire" class="cover__nav cover__nav-link">
+                    <div class="cover__container cover__container-tryptique" role="menu"
+                         aria-label="duplicate primary menu">
+                        <a href="#notre-histoire" class="cover__nav cover__nav-link" role="menuitem">
                             <h1 class="cover__title">
                                 L'univers
                                 <i class="cover__icon icon-vague"></i>

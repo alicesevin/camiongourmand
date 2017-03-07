@@ -12,14 +12,14 @@ $listes = get_terms(array(
 ));
 ?>
 <!-- MAIN -->
-<main id="<?php echo $post_type ?>" class="main main-<?php echo $post_type ?>">
+<main id="<?php echo $post_type ?>" class="main main-<?php echo $post_type ?>" role="main">
     <?php set_query_var('post_type', $post_type);
     echo get_template_part('templates/cover'); ?>
     <!-- MAIN - HISTOIRE -->
-    <section class="section">
+    <section class="section" role="region">
         <!-- MAIN - HISTOIRE - Description -->
-        <h1 class="section__title"><?php echo get_the_title() ?></h1>
-        <p class="section__description"><?php echo get_the_content() ?></p>
+        <h1 class="section__title" role="presentation"><?php echo get_the_title() ?></h1>
+        <p class="section__description" role="contentinfo"><?php echo get_the_content() ?></p>
         <!-- MAIN - HISTOIRE - Background -->
         <?php
         set_query_var('section', 'histoire');

@@ -109,7 +109,7 @@ function load_styles()
         wp_register_style('theme-styles', get_stylesheet_directory_uri() . '/dist/css/main.css', array(), null);
 
         //Scripts
-        wp_enqueue_script('theme-script', get_stylesheet_directory_uri() . '/dist/js/main.js', array(), null);
+        wp_enqueue_script('theme-script', get_stylesheet_directory_uri() . '/dist/js/main.js', array(), null, true);
 
         wp_enqueue_style('theme-styles');
         wp_enqueue_script('theme-script');
@@ -165,3 +165,19 @@ function get_menus( $atts ) {
     return ob_get_clean();
 }
 add_shortcode( 'menu', 'get_menus' );
+
+// Add async attribute to script loaded from wp_enqueue_script
+
+function add_async_attribute($tag, $handle)
+{
+
+    if ('theme-script' !== $handle) {
+        return $tag;
+    }
+
+    return str_replace(' src', ' async src', $tag);
+
+}
+
+add_filter('script_loader_tag', 'add_async_attribute', 10, 2);
+
