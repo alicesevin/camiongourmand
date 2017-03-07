@@ -63,7 +63,7 @@ $listes = get_terms(array(
                         $indexMenus = 0;
                         $menusDivided = 1;
                         $countMenu = count($menus->posts);
-                        $midsizeMenus = ($countMenu > 1) ? ceil($countMenu / 2) + 1 : 2;
+                        $midsizeMenus = ($countMenu > 1) ? ceil($countMenu / ceil($countMenu/2)) : 2;
                         if(!$isRestau) $midsizeMenus= $countMenu;
 
                         while ($menus->have_posts()):
@@ -99,13 +99,12 @@ $listes = get_terms(array(
                             //Add content to associated liste
                             $content = $img . $title . do_shortcode($shortcode);
                             (($indexMenus - 1) > $midsizeMenus) ? $listeMenusR[] = $content : $listeMenusL[] = $content;
-                        endwhile;
-                    endif; ?>
-                    <!-- MAIN - MENUS - Liste -->
-                    <?php echo '<div class="section__column section__column-left"><ul class="section__detailContainer">' . implode('', $listeMenusL) . '</ul></div>';
-                    if (count($listeMenusR) > 0)
-                        echo '<div class="section__column section__column-right"><ul class="section__detailContainer">' . implode('', $listeMenusR) . '</ul></div>'; ?>
-                    <?php
+                        endwhile;?>
+                <!-- MAIN - MENUS - Liste -->
+                <?php echo '<div class="section__column section__column-left"><ul class="section__detailContainer">' . implode('', $listeMenusL) . '</ul></div>';
+                if (count($listeMenusR) > 0)
+                    echo '<div class="section__column section__column-right"><ul class="section__detailContainer">' . implode('', $listeMenusR) . '</ul></div>'; ?>
+                <?php endif;
                     $indexListe++;
                 endforeach; ?>
                 <!-- MAIN - MENUS - Background -->
