@@ -63,7 +63,7 @@ module.exports = function () {
             //NOUS TROUVER SCROLL INTERACTIONS
             tl.to($('.section__detail'), 0, {alpha: 1, ease: Power4.easeOut}, 0);
             if (!trouverActive) {
-                tl.from(".section-trouver .section__detailPart-map", 1, {alpha: 1, x: -30}, 0)
+                tl.from(".section-trouver .section__detailPart-map", 1, {alpha: 1, x: -30}, 0);
                 trouverActive = true;
             }
 
