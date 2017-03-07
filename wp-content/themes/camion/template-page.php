@@ -81,10 +81,9 @@ $listes = get_terms(array(
                     if ($allowed) {
                         $img = '<li class="menus__item menus__item-img ">' .
                             '<img srcset="' .
-                            $images[$indexMenusImg]['sizes']['small'] . ' 200w,' .
+                            $images[$indexMenusImg]['sizes']['thumbnail'] . ' 200w,' .
                             $images[$indexMenusImg]['sizes']['medium'] . ' 600w,' .
-                            $images[$indexMenusImg]['sizes']['large'] . '1000w"' .
-                            'sizes="…"' .
+                            $images[$indexMenusImg]['sizes']['large'] . ' 1000w"' .
                             'src="' . $images[$indexMenusImg]['url'] . '"' .
                             'alt="' . $images[$indexMenusImg]['name'] . '">' .
                             '</li>';

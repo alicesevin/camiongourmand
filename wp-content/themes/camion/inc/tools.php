@@ -136,14 +136,6 @@ function theme_support()
     //MENUS
     add_theme_support('menus');
 
-    //IMAGES SIZES
-    update_option('medium_size_w', 768);
-    update_option('medium_size_h', 768);
-    update_option('large_size_w', 990);
-    update_option('large_size_h', 990);
-    add_image_size('full_col', 1200, 1200 );
-    add_image_size('full_col_ret', 2400, 2400 );
-
     //MENU
     register_nav_menus(
         array(

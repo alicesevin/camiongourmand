@@ -18,12 +18,11 @@ if ($images && count($images) > 0):
                     ?>
                     <div class="carousel__containerImg<?php echo $classImg; ?>">
                         <?php
-                        var_dump($image);
                         $className = ($image['width'] <= $image['height']) ? 'vert' : 'horz'; ?>
-                        <img class="<?php echo $className ?>" srcset="<?php echo $image['sizes']['small']; ?> 200w,
+                        <img class="<?php echo $className ?>" srcset="
+                                    <?php echo $image['sizes']['thumbnail']; ?> 200w,
                                     <?php echo $image['sizes']['medium']; ?> 600w,
                                     <?php echo $image['sizes']['large']; ?> 1000w"
-                             sizes="…"
                              src="<?php echo $image['url']; ?>"
                              alt="<?php echo $image['name'] ?>">
                     </div>

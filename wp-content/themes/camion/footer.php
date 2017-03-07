@@ -28,7 +28,7 @@ global $takeit;
                 <p class="footer__description">Recevoir notre newsletter</p>
                 <form class="footer__form" role="" action="post">
                     <div class="footer__formContainer">
-                        <input class="footer__formInput footer__formInput-email" type="email" placeholder="Adresse Mail"/>
+                        <input required class="footer__formInput footer__formInput-email" type="email" placeholder="Adresse Mail"/>
                         <input class="footer__formInput footer__formInput-submit" type="submit" value="V">
                     </div>
                 </form>

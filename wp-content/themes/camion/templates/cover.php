@@ -38,7 +38,7 @@ $place = ($post_type == 'camion') ? 'Le camion' : 'Père & fils';
                                 <i class="cover__icon icon-<?php echo $icon ?>"></i>
                                 <i class="cover__navIcon icon__arrow-<?php echo $way ?> icon-arrow"></i>
                             </h1>
-                            <?php echo wp_get_attachment_image(get_post_thumbnail_id(), 'large'); ?>
+                            <?php echo wp_get_attachment_image(get_post_thumbnail_id($page->ID), 'large'); ?>
                         </a>
                     </div>
                     <?php
@@ -51,7 +51,7 @@ $place = ($post_type == 'camion') ? 'Le camion' : 'Père & fils';
                                 <i class="cover__icon icon-vague"></i>
                                 <i class="cover__navIcon icon__arrow-bottom icon-arrow"></i>
                             </h1>
-                            <?php echo wp_get_attachment_image_src(get_post_thumbnail_id(get_option('page_on_front')), 'large'); ?>
+                            <?php echo wp_get_attachment_image(get_post_thumbnail_id(get_option('page_on_front')), 'large'); ?>
                         </a>
                     </div>
                 <?php endif;
