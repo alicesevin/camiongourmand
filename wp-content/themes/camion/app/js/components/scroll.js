@@ -1,10 +1,7 @@
-/**
- * Created by Thib on 06/03/2017.
- */
 var $ = require('jquery');
 require("gsap");
 
-//section__bgIcon icon-champi
+
 module.exports = function () {
 
     //VARIABLES
@@ -28,25 +25,25 @@ module.exports = function () {
 
     function animations() {
 
-        var $icons = $('.section__bg').find('i');
-        var animationLiberty = 0.1;   // j'avais pas de nom de variable
+        var $icons = $('.section__bg').find('i'),
+            animationLiberty = 0.1,   // j'avais pas de nom de variable
+            animationsRandom = [];
 
-        function iconsParralaxe() {
-            TweenMax.to($icons, 0.5, {y: -$('body').scrollTop() * animationLiberty});
+        //pour que la osition y soit différente entre chaques élément
+        for (i = 0; i <= $icons.length; i++) {
+            animationsRandom.push(Math.random() * (1 + i * 0.3))
         }
 
-        function fadeText(element) {
-            for (i = 0; i <= element.length; i++) {
-               // console.log(element.offset().top)
-                if (element.offset().top === $(window).scrollTop()) {
-                    console.log('done')
-                }
+        //parralaxe des icons
+        function iconsParralaxe() {
+            for (i = 0; i <= $icons.length - 1; i++) {
+                TweenMax.to($icons[i], animationsRandom[i], {y: -($('body').scrollTop()) * animationLiberty})
             }
+            return false;
         }
 
         $(window).on('scroll', function () {
             iconsParralaxe();
-            fadeText($('.section__bg'));
         });
     }
 
@@ -54,15 +51,18 @@ module.exports = function () {
 
     var timeline = function () {
 
-        if (inSection('.section-histoire')) {
-            console.log('histoire');
-            //HISTOIRE SCROLL INTERACTIONS
+        if (inSection('.section-histoire', 550)) {
+            console.log('histoire')
+            tl.to($('.section__description'), {alpha: 1, ease: Power4.easeOut})
+        } else if (inSection('.section-trouver') && !trouverActive) {
+
         }
-        if (inSection('.section-trouver')) {
+        if (inSection('.section-trouver'), 100) {
             console.log('trouver');
             //NOUS TROUVER SCROLL INTERACTIONS
-            if(!trouverActive){
-                tl.from(".section-trouver .section__detailPart-map", 1, {alpha: 0, x: -30}, .3);
+            tl.from($('.section__detail'), 0.5, {alpha: 1, x: 30, ease: Power4.easeOut})
+            if (!trouverActive) {
+                tl.from(".section-trouver .section__detailPart-map", 1, {alpha: 0, x: -30}, .3)
                 trouverActive = true;
             }
 
@@ -76,11 +76,11 @@ module.exports = function () {
 
         }
 
-        function inSection(elem) {
+        function inSection(elem, delay) {
             var elemTarget = $(elem);
             if (elemTarget.length) {
                 var elemTargetH = elemTarget.outerHeight(),
-                    deltaIn = elemTarget.offset().top - $('header').height(),
+                    deltaIn = elemTarget.offset().top - $('header').height() - delay,
                     deltaOut = deltaIn + elemTargetH - $('header').height();
 
                 if ($(window).scrollTop() > deltaIn && $(window).scrollTop() < deltaOut) {
@@ -109,3 +109,6 @@ module.exports = function () {
 
     }
 };
+/**
+ * Created by Thib on 07/03/2017.
+ */

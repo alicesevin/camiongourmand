@@ -45,7 +45,7 @@ $place = ($post_type == 'camion') ? 'Le camion' : 'Père & fils';
                 endif;
                 if ($page == $pages->posts[0]):?>
                     <div class="cover__container cover__container-tryptique">
-                        <a href="#notre-histoire" class="cover__nav">
+                        <a href="#notre-histoire" class="cover__nav cover__nav-link">
                             <h1 class="cover__title">
                                 L'univers
                                 <i class="cover__icon icon-vague"></i>

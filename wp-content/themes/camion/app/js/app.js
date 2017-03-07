@@ -5,6 +5,7 @@ var carousel = require('./components/carousel');
 var scroll = require('./components/scroll');
 
 // Initialisation des composants
+
 appGlobal();
 burger();
 carousel();
