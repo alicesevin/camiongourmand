@@ -8,61 +8,65 @@
   text-align: center;
   color: $lightColor;
   border-bottom: 14px solid $veryLightColor;
+
   @media screen and (min-width: $md-min) {
     border-bottom-width: 22px;
   }
-  &__bar {
+}
+.menu-open .head{
+  height:100vh;
+  min-height: 580px;
+  overflow: auto;
+  border-bottom: 0;
+}
 
-    height: 100%;
-    position: relative;
-    padding: 20px 20px 35px;
-    @media screen and (min-width: $md-min) {
-      display: block;
-      padding: 0;
-    }
-    &Logo {
-      width: 85px;
-      display: inline-block;
-      position: absolute;
-      top: 25px;
-      left: 50%;
-      transform: translateX(-50%);
-      @media screen and (min-width: $md-min) {
-        width: 125px;
-        top: 15px;
-      }
-      img {
-        width: 100%;
-        height: auto;
-      }
+.head__bar {
 
-    }
+  height: 100%;
+  position: relative;
+  padding: 20px 20px 35px;
 
-
-
+  @media screen and (min-width: $md-min) {
+    display: block;
+    padding: 0;
   }
+}
 
-  &__menu {
-
-    @media screen and (min-width: $md-min) {
-      display: inline-block;
-    }
-    //Navigation in modules/navigation
+.menu-open .head__bar {
+  border-bottom: 14px solid $veryLightColor;
+}
+.head__barLogo {
+  width: 85px;
+  display: inline-block;
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  @media screen and (min-width: $md-min) {
+    width: 125px;
+    top: 15px;
+  }
+  img {
+    width: 100%;
+    height: auto;
   }
 
 }
 
+.head__menu {
 
-.head__barBurger{
+  @media screen and (min-width: $md-min) {
+    display: inline-block;
+  }
+  //Navigation in modules/navigation
+}
+
+.head__barBurger {
 
   float: right;
   cursor: pointer;
 
-  @media screen and (min-width: $md-min) {
-    display: none;
-  }
-
-  span{
+  span {
     width: 25px;
     height: 2px;
     background: $lightColor;
@@ -74,21 +78,27 @@
       margin: 6px auto;
     }
   }
-  &-open {
-    .menu__burger{
-      &-first {
-        transform: rotate(45deg);
-        transition: all .4s;
-      }
-      &-second {
-        opacity: 0;
-        transition: all .4s;
-        display: none;
-      }
-      &-third {
-        transform: rotate(-45deg);
-        transition: alls .4s;
-      }
+
+  @media screen and (min-width: $md-min) {
+    display: none;
+  }
+
+}
+
+.head__barBurger-open {
+  .menu__burger {
+    &-first {
+      transform: rotate(45deg);
+      transition: all .4s;
+    }
+    &-second {
+      opacity: 0;
+      transition: all .4s;
+      display: none;
+    }
+    &-third {
+      transform: rotate(-45deg);
+      transition: alls .4s;
     }
   }
 }

@@ -3,11 +3,18 @@
 **Dépendances**
 
 - Node
-- Livereload ( extension Chrome )
+- Livereload ( extension Chrome ) pour hot reload
+- Jquery
+- TweenMax ( animations )
+
+**Support**
+- IE 11 animations
+- IE 10 hors animations spécifiques
 
 **Environnement**
 
-- Préprocesseur : Gulp
+- TaskRunner : Gulp
+- Préprocesseur : Sass via Scss
 
 **Installation**
 
@@ -19,35 +26,10 @@ FRONT :
 
 BACK :
 
-- Déclarer hosts ( ex : camion.dev )
-- Installer base de donnée ( camion.sql )
-- Modifier les entrées ( siteurl/home ) de la table wp_options par votre référence.
+- Déclarer hosts ( ex : camion.dev ) et si besoin http.vhosts.conf via MAMP ou autres environnements
+- Installer base de donnée ( camion.sql présente à la racine)
+- Modifier les entrées ( siteurl/home ) de la table wp_options par votre référence si hosts différents de camion.dev.
+- Télécharger le zip uploads.zip et le le dézipper dans un folder /uploads dans wp-content ( version non administrée directement pour cause de poids )
 
 ###Wordpress ( Gestion du contenu )
-
-**Fonctionnement :**
-* Modele de page :
-    * Style
-    * Type
-        * Si : Type == Texte
-            * Titre
-            * Texte
-        * Si Type == Image
-            * Image
-        * Si Type == Liste de recette
-            * Choix de la liste
-        
-        
-* Liste Menus => Custom post type : 
-    
-    * Titre de la section ( ex : Les burgers )
-    * Sous éléments (ex : Waf Waf ) :
-         
-         * Titre de l'élément
-         * Description
-         * Prix
-         * Formule ( Vrai / Faux )
-         * Si formule : Prix => Dessert - Boisson
-         
-* Descriptions :
     

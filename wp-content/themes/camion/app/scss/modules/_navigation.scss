@@ -4,133 +4,134 @@
 
   display: none;
   padding: 20px 0;
-
-  &.head__menu-open {
+  @media screen and (min-width: $md-min) {
     display: block;
-    height: 100vh;
-    padding-top: 10vh;
+    padding: 0;
   }
+}
+
+.menu.head__menu-open {
+  display: block;
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding-top: 0;
+}
+
+.menu__nav {
   @media screen and (min-width: $md-min) {
     display: inline-block;
+    position: relative;
+    height: auto;
     padding: 0;
     margin-left: 10px;
   }
+}
 
-  &__nav {
-    @media screen and (min-width: $md-min) {
-      position: relative;
-      display: inline-block;
-    }
+.menu__adress {
+
+  @include rem(font-size, $menuReg);
+  @include rem(line-height, 25px);
+
+  strong {
+    display: block;
+    font-weight: $semibold;
+    margin-top: 8px;
   }
 
-  &__adress {
-
-    @include rem(font-size, $menuReg);
-    @include rem(line-height, 25px);
-
-    strong {
-      display: block;
-      font-weight: $semibold;
-      margin-top: 8px;
-    }
-
-    @media screen and (min-width: $md-min) {
-      display: none;
-    }
-
-  }
-
-  &__sociaux {
-
-    margin: 30px auto 15px;
-
-    @media screen and (min-width: $md-min) {
-      display: inline-block;
-      margin-top: 0;
-      margin-left: 20px;
-    }
-
-  }
-
-  .nav__links {
-
-    margin: 12px auto;
-
-    li {
-
-      display: block;
-      margin: 5px auto;
-      @include rem(font-size, $menuBold);
-      @include rem(letter-spacing, 1.5px);
-      font-weight: $medium;
-      text-transform: uppercase;
-      a {
-
-        display: block;
-        padding: 5px 0;
-
-      }
-
-    }
-    @media screen and (min-width: $md-min) {
-
-      li {
-        @include rem(font-size, $menuBoldMd);
-        @include rem(letter-spacing, 1px);
-        font-weight: $regular;
-        display: inline-block;
-        margin: 4px 7px;
-        position: relative;
-
-        &:nth-child(2) {
-          margin-right: 80px;
-        }
-        &:nth-child(3) {
-          margin-left: 80px;
-        }
-        a {
-          padding: 7px;
-
-          &:hover:before {
-            width: 100%;
-          }
-
-          &:hover:after {
-            width: 100%;
-          }
-
-          &:before {
-            content: '';
-            position: absolute;
-            display: block;
-            bottom: 0;
-            left: 0;
-            width: 0%;
-            border-bottom: 2px solid #fff;
-            transition: 0.4s;
-          }
-
-          &:after {
-            content: '';
-            position: absolute;
-            display: block;
-            top: 0;
-            right: 0;
-            width: 0%;
-            border-bottom: 2px solid #fff;
-            transition: 0.4s;
-          }
-
-        }
-
-      }
-
-    }
-
+  @media screen and (min-width: $md-min) {
+    display: none;
   }
 
 }
-.nav-point{
+
+.menu__sociaux {
+
+  margin: 30px auto 15px;
+
+  @media screen and (min-width: $md-min) {
+    display: inline-block;
+    margin-top: 0;
+    margin-left: 20px;
+  }
+
+}
+
+.menu .nav__links {
+
+  margin: 12px auto;
+}
+
+.menu .nav__links li {
+
+  display: block;
+  margin: 5px auto;
+  @include rem(font-size, $menuBold);
+  @include rem(letter-spacing, 1.5px);
+  font-weight: $medium;
+  text-transform: uppercase;
+
+  @media screen and (min-width: $md-min) {
+    @include rem(font-size, $menuBoldMd);
+    @include rem(letter-spacing, 1px);
+    font-weight: $regular;
+    display: inline-block;
+    margin: 4px 7px;
+    position: relative;
+
+    &:nth-child(2) {
+      margin-right: 80px;
+    }
+    &:nth-child(3) {
+      margin-left: 80px;
+    }
+  }
+}
+
+.menu .nav__links li a {
+
+  display: block;
+  padding: 5px 0;
+
+  @media screen and (min-width: $md-min) {
+    padding: 7px;
+
+    &:hover:after,
+    &:hover:before {
+      width: 100%;
+    }
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      display: block;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      border-bottom: 2px solid #fff;
+      transition: 0.4s;
+    }
+
+    &:after {
+      border-top: 2px solid #fff;
+      border-bottom: 0;
+      top: 0;
+      left: auto;
+      right: 0;
+    }
+  }
+}
+
+.menu .nav__links li.current_page_item a {
+  &:after,
+  &:before {
+    width: 100%;
+  }
+}
+
+.nav-point {
   margin-top: -75px;
   position: absolute;
 }

@@ -9,16 +9,19 @@ $bg = wp_get_attachment_image_src(get_post_thumbnail_id(), 'large');
 <section class="cover">
     <?php if ($post_type):
         $icon = explode('-', $post->post_name);
-        if(isset($icon[1]) && ($icon[1] == 'camion' || $icon[1] == 'restaurant')){
+        if (isset($icon[1]) && ($icon[1] == 'camion' || $icon[1] == 'restaurant')) {
             $icon = $icon[1];
-            $subtitle = ($icon == 'camion')?'Food truck':'Restaurant';
+            $subtitle = ($icon == 'camion') ? 'Food truck' : 'Restaurant';
         } ?>
-        <div class="cover__container" <?php if ($bg) echo 'style="background-image:url(' . $bg[0] . ');"' ?>>
+        <div class="cover__container">
             <div class="cover__nav">
                 <h1 class="cover__title"><?php echo $place . ' ' ?>
                     <span class="cover__subtitle"><?php echo $subtitle ?></span>
                     <i class="cover__icon icon-<?php echo $icon ?>"></i>
                 </h1>
+                <?php if ($bg): ?>
+                    <img src="<?php echo $bg[0]; ?>" alt="<?php echo $place; ?>"/>
+                <?php endif; ?>
             </div>
         </div>
     <?php else:
@@ -32,33 +35,37 @@ $bg = wp_get_attachment_image_src(get_post_thumbnail_id(), 'large');
                 $bg = wp_get_attachment_image_src(get_post_thumbnail_id($page->ID), 'large');
                 if ($icon):
                     ?>
-                    <div class="cover__container cover__container-tryptique" <?php if ($bg) echo 'style="background-image:url(' . $bg[0] . ');"' ?>>
+                    <div class="cover__container cover__container-tryptique">
                         <a href="<?php echo get_the_permalink($page->ID) ?>" class="cover__nav">
                             <h1 class="cover__title">
                                 <?php echo $place ?>
                                 <i class="cover__icon icon-<?php echo $icon ?>"></i>
                                 <i class="cover__navIcon icon__arrow-<?php echo $way ?> icon-arrow"></i>
                             </h1>
+                            <?php if ($bg): ?>
+                                <img src="<?php echo $bg[0]; ?>" alt="<?php echo $place; ?>"/>
+                            <?php endif; ?>
                         </a>
                     </div>
                     <?php
                 endif;
                 if ($page == $pages->posts[0]):?>
-                    <div class="cover__container cover__container-tryptique" <?php if ($bg_home) echo 'style="background-image:url(' . $bg_home[0] . ');"' ?>>
+                    <div class="cover__container cover__container-tryptique">
                         <a href="#notre-histoire" class="cover__nav">
                             <h1 class="cover__title">
                                 L'univers
                                 <i class="cover__icon icon-vague"></i>
                                 <i class="cover__navIcon icon__arrow-bottom icon-arrow"></i>
                             </h1>
+                            <?php if ($bg_home): ?>
+                                <img src="<?php echo $bg_home[0]; ?>" alt="L'univers"/>
+                            <?php endif; ?>
                         </a>
                     </div>
                 <?php endif;
             endforeach; ?>
-            <div class="mosaic">
-
-            </div>
         <?php endif;
         wp_reset_postdata();
     endif; ?>
 </section>
+<div class="mosaic"></div>

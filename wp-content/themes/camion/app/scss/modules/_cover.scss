@@ -4,39 +4,67 @@
 }
 
 .cover__container {
-  position: relative;
   display: block;
   height: 220px;
+  position: relative;
   background: center center no-repeat;
   background-size: cover;
-  &-tryptique {
-    cursor: pointer;
-    &:nth-child(2) {
-      margin: 10px auto;
-    }
+
+  img {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 1s;
     @media screen and (min-width: $md-min) {
-      width: 33%;
-      float: left;
       height: 100%;
-      &:nth-child(2) {
-        margin: 0;
-      }
+      width: auto;
+    }
+  }
+}
+
+.cover__container-tryptique {
+  cursor: pointer;
+  overflow: hidden;
+  &:nth-child(2) {
+    margin: 10px auto;
+  }
+  @media screen and (min-width: $md-min) {
+    width: 33.33%;
+    height: 100%;
+    float: left;
+    &:nth-child(2) {
+      margin: 0;
+    }
+  }
+  img {
+
+    &:hover {
+      transform: translate(-50%, -50%) scale(1.05);
+      transition: transform 1s;
+    }
+    @media screen and (min-width: $lg-min) {
+      height: 100%;
+      width: auto;
     }
   }
 }
 
 .cover__title {
   display: table-cell;
-  vertical-align: middle;
   width: 100%;
   @include box-sizing();
-  font-family: $font-secondary;
+  vertical-align: middle;
   @include rem(font-size, $coverTitle);
+  font-family: $font-secondary;
   font-weight: $semibold;
   color: #fff;
   @media screen and (min-width: $sm-min) {
-    @include rem(font-size, $coverTitle);
     padding: 20px;
+    @include rem(font-size, $coverTitle);
     word-break: break-word;
   }
   @media screen and (min-width: $md-min) {
@@ -44,13 +72,14 @@
   }
 
 }
+
 .cover__subtitle {
   display: block;
-  @include rem(font-size, $coverSubtitle);
-  @include rem(letter-spacing, 1px);
-  font-family: $font-primary;
-  text-transform: uppercase;
   margin-top: 10px;
+  @include rem(font-size, $coverSubtitle);
+  font-family: $font-primary;
+  @include rem(letter-spacing, 1px);
+  text-transform: uppercase;
   @media screen and (min-width: $sm-min) {
     margin-top: 20px;
   }
@@ -58,61 +87,61 @@
 
 .cover__icon {
   display: block;
-  $color: $lightColor;
-  @include rem(font-size, 25px);
   margin-top: 10px;
-  &.icon-vague{
-    @include rem(font-size, 3px);
+  @include rem(font-size, 25px);
+  $color: $lightColor;
+  &.icon-vague {
     width: 60px;
     margin: 10px auto 0;
-    font-weight: 900;
+    @include rem(font-size, 3px);
     overflow: hidden;
+    font-weight: 900;
   }
   @media screen and (min-width: $sm-min) {
-    @include rem(font-size, 30px);
     margin-top: 20px;
-    &.icon-vague{
-      @include rem(font-size, 6px);
+    @include rem(font-size, 30px);
+    &.icon-vague {
       width: auto;
+      @include rem(font-size, 6px);
     }
   }
 }
 
 .cover__nav {
-  text-align: center;
+  display: table;
   height: 100%;
   width: 100%;
-  display: table;
+  text-align: center;
 }
 
-.cover__navIcon{
+.cover__navIcon {
   display: block;
-  color: $lightColor;
-  @include rem(font-size, 10px);
-  font-weight: 900;
   position: absolute;
-  transform: translateX(-50%);
   bottom: 15px;
   left: 50%;
+  transform: translateX(-50%);
+  @include rem(font-size, 10px);
+  font-weight: 900;
+  color: $lightColor;
   &.icon__arrow-right,
-  &.icon__arrow-left{
-    transform: rotate(-90deg);
+  &.icon__arrow-left {
     bottom: 55px;
     left: auto;
     right: 10%;
+    transform: rotate(-90deg);
   }
   @media screen and (min-width: $md-min) {
-    @include rem(font-size, 12px);
     bottom: 80px;
     left: 50%;
-    &.icon__arrow-left{
+    @include rem(font-size, 12px);
+    &.icon__arrow-left {
       transform: rotate(90deg);
       bottom: 80px;
       left: 50%;
       right: auto;
       margin-left: -15px;
     }
-    &.icon__arrow-right{
+    &.icon__arrow-right {
       bottom: 80px;
       left: 50%;
       right: auto;
@@ -120,20 +149,22 @@
     }
   }
 }
-.main-home{
-  .cover{
+
+.main-home {
+  .cover {
     @media screen and (min-width: $md-min) {
       height: 406px;
     }
   }
-  .cover__container{
+  .cover__container {
     height: 120px;
     @media screen and (min-width: $md-min) {
       height: 100%;
     }
   }
 }
-.main:not(.main-home){
+
+.main:not(.main-home) {
   .cover__container {
     height: 160px;
     @media screen and (min-width: $sm-min) {

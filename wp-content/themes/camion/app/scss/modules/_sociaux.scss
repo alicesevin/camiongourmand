@@ -8,28 +8,6 @@
     a{
       padding: 7px;
       display: block;
-
-      &:hover:before,
-      &:hover:after{
-         width: 100%;
-       }
-
-      &:before,
-      &:after {
-        content: '';
-        position: absolute;
-        display: block;
-        top: 0;
-        right: 0;
-        width: 0;
-        border-bottom: 2px solid #fff;
-        transition: 0.4s;
-      }
-
-      &:before{
-        left: 0;
-        right: auto;
-      }
     }
   }
 }
