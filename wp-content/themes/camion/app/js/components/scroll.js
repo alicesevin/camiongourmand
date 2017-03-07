@@ -7,10 +7,6 @@ var $ = require('jquery');
 
 module.exports = function () {
 
-    $(document).ready(function () {
-        scroll()
-    });
-
     function scroll() {
         //Enter all elements here that you want to be scroll and set their offset
 
@@ -25,9 +21,9 @@ module.exports = function () {
         }
 
         //fade your text
-        // function fadeText (text) {
-        //     text.css('opacity', '1')
-        // }
+        function fadeText (text) {
+            text.css('opacity', '1')
+        }
 
         var controller = new ScrollMagic.Controller();
         for (var i = 0; i <= elementsTab.length - 1; i++) {
@@ -42,4 +38,7 @@ module.exports = function () {
                 // .on('start', fadeText($(elementsTab[i].name)))
         }
     }
+    $(document).ready(function () {
+        scroll()
+    });
 };
