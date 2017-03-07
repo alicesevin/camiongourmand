@@ -39,7 +39,7 @@ global $instagram;
             <div class="head__bar">
 
                 <!-- HEADER - LOGO -->
-                <div class="head__barLogo">
+                <div class="head__barLogo" role="">
                     <a href="<?php echo home_url(); ?>">
                         <img src="<?php echo get_stylesheet_directory_uri() ?>/dist/img/logo.png"
                              alt="<?php bloginfo('name'); ?>">
@@ -57,7 +57,7 @@ global $instagram;
 
 
             <!-- HEADER - MENU -->
-            <div class="head__menu menu">
+            <div class="head__menu menu" role="menu" aria-label="menu for navigation">
 
                 <!-- HEADER - MENU - Nav -->
 
@@ -66,6 +66,8 @@ global $instagram;
                     'menu_class' => 'nav__links',
                     'container_id' => false,
                     'container' => 'nav',
+                    'role' => 'menuitem',
+                    'aria-label' => 'item in menu navigation',
                     'container_class' => 'menu__nav',
                     'menu' => 'Menu principal',
                     'theme_location' => 'main-nav'
@@ -79,14 +81,14 @@ global $instagram;
                 <!-- HEADER - MENU - Sociaux -->
 
                 <?php if ($facebook || $instagram): ?>
-                    <div class="menu__sociaux">
+                    <div class="menu__sociaux" role="menu" aria-label="social menu">
                         <ul class="menu__sociauxLinks">
                             <?php if ($facebook): ?>
-                                <li><a target="_blank" class="icon__sociaux icon-facebook"
+                                <li><a target="_blank" class="icon__sociaux icon-facebook" role="menuitem" aria-label="item in social menu"
                                        href="<?php echo $facebook ?>"></a></li>
                             <?php endif;
                             if ($instagram): ?>
-                                <li><a target="_blank" class="icon__sociaux icon-instagram"
+                                <li><a target="_blank" class="icon__sociaux icon-instagram" role="menuitem" aria-label="item in social menu"
                                        href="<?php echo $instagram ?>"></a></li>
                             <?php endif; ?>
                         </ul>
@@ -96,7 +98,7 @@ global $instagram;
                 <!-- HEADER - MENU - Adresse -->
 
                 <div class="menu__adress">
-                    <p>
+                    <p role="complementary" aria-label="location">
                         38-42 rue cuvier,<br>
                         Montreuil, Ile-De-France<br>
                         France
