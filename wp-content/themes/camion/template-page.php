@@ -63,7 +63,7 @@ $listes = get_terms(array(
                         $indexMenus = 0;
                         $menusDivided = 1;
                         $countMenu = count($menus->posts);
-                        $midsizeMenus = ($countMenu > 1) ? ceil($countMenu / ceil($countMenu/2)) : 2;
+                        $midsizeMenus = ($countMenu > 1) ? ceil($countMenu / (ceil($countMenu/2)-1)) : 2;
                         if(!$isRestau) $midsizeMenus= $countMenu;
 
                         while ($menus->have_posts()):
@@ -91,6 +91,7 @@ $listes = get_terms(array(
                                     'alt="' . $images[$indexMenusImg]['name'] . '">' .
                                     '</li>';
                                 $indexMenusImg++;
+                                $menusDivided += 2;
                             }
 
                             //increment count
