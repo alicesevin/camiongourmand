@@ -13,15 +13,13 @@ module.exports = function () {
 
         //READY
         animations();
-        smoothScroll();
 
         //ALICE
         animCoverTpl();
         timeline();
-        activeNav();
 
         //SCROLL
-        $(window).scroll(timeline());
+        $(window).scroll(timeline);
 
     });
 
@@ -49,39 +47,31 @@ module.exports = function () {
         });
     }
 
-    function smoothScroll() {
-
-        $('.cover__nav-link').on('click', function () {
-            var page = $(this).attr('href');
-            $('html, body').animate({scrollTop: $(page).offset().top}, 300);
-            return false;
-        });
-
-    }
-
     //ALICE
-
-    var activeNav = function () {
-        if ($(window).scrollTop() > 60) {
-            tl.from('.head', 1, {y: -200, ease: Power4.easeOut}, '-=1');
-        }
-    };
 
     var timeline = function () {
 
         if (inSection('.section-histoire')) {
+            console.log('histoire');
             //HISTOIRE SCROLL INTERACTIONS
             console.log('yeeeee')
 
         } else if (inSection('.section-trouver') && !trouverActive) {
+        }
+        if (inSection('.section-trouver')) {
+            console.log('trouver');
             //NOUS TROUVER SCROLL INTERACTIONS
-            trouverActive = true;
-            tl.staggerFrom(".section-trouver .section__detailPart", 1, {alpha: 0, x: -30}, .3);
+            if(!trouverActive){
+                tl.from(".section-trouver .section__detailPart-map", 1, {alpha: 0, x: -30}, .3);
+                trouverActive = true;
+            }
 
-        } else if (inSection('.section-menus')) {
+        }
+        if (inSection('.section-menus')) {
             //MENUS SCROLL INTERACTIONS
 
-        } else if (inSection('.footer')) {
+        }
+        if (inSection('.footer')) {
             //FOOTER SCROLL INTERACTIONS
 
         }
@@ -90,8 +80,8 @@ module.exports = function () {
             var elemTarget = $(elem);
             if (elemTarget.length) {
                 var elemTargetH = elemTarget.outerHeight(),
-                    deltaIn = elemTarget.offset().top,
-                    deltaOut = deltaIn + elemTargetH;
+                    deltaIn = elemTarget.offset().top - $('header').height(),
+                    deltaOut = deltaIn + elemTargetH - $('header').height();
 
                 if ($(window).scrollTop() > deltaIn && $(window).scrollTop() < deltaOut) {
                     return true;
@@ -103,6 +93,9 @@ module.exports = function () {
     };
     var animCoverTpl = function () {
         coverActive = true;
+        if ($(window).scrollTop() > 60) {
+            tl.from('.head', 1, {y: -200, ease: Power4.easeOut}, '-=1');
+        }
         tl.staggerFromTo(".cover img", 1,
             {alpha: 0},
             {alpha: 1, ease: Power4.easeOut, clearProps: 'all'}, .3)
