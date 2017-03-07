@@ -42,6 +42,7 @@
   }
 
 }
+
 .section__column {
   @media screen and (min-width: $md-min) {
     width: 100%;
@@ -49,7 +50,7 @@
       width: 50%;
       float: right;
     }
-    &-left{
+    &-left {
       width: 50%;
       float: left;
     }
@@ -57,137 +58,95 @@
 }
 
 .section__detail {
-
   text-align: left;
   overflow: hidden;
-
-  &Title {
-    margin: 30px auto 15px;
-    @include rem(font-size, $sectionDetailTitle);
-    @include rem(letter-spacing, 1.8px);
-    text-transform: uppercase;
-    font-weight: $bold;
-    letter-spacing: 2.1px;
-  }
-
-  &Container {
-    margin: 15px auto;
-  }
-  &Container-img {
-    height: 220px;
-    width: 100%;
-    overflow: hidden;
-    img {
-      min-width: 100%;
-      max-height: 100%;
-      width: auto;
-      height: auto;
-      min-height: 100%;
-    }
-  }
-
-  &Part {
-    padding: 10px 0;
-    > p {
-      display: block;
-      line-height: 25px;
-      color: $g1Dark;
-    }
-    &-map {
-      background: #000;
-      float: none;
-      padding: 0;
-      position: absolute;
-      top: 47%;
-      width: 100%;
-      transform: translateY(-50%);
-      & + .section__detail {
-        margin-bottom: 200px;
-      }
-      #wpgmza_map {
-        height: 200px !important;
-        position: relative;
-        z-index: 2;
-      }
-    }
-
-    @media screen and (min-width: $sm-min) {
-      width: 50%;
-      float: left;
-      position: static;
-      transform: none;
-      padding: 10px 20px;
-      &:first-child,
-      &:nth-child(1n+1) {
-        padding-left: 0;
-      }
-      &-map {
-        width: 100%;
-        padding: 0;
-        #wpgmza_map {
-          height: 250px !important;
-        }
-        & + .section__detail {
-          margin-bottom: 0;
-        }
-      }
-    }
-    @media screen and (min-width: $md-min) {
-      width: 33%;
-      &-map {
-        width: 100%;
-        padding: 0;
-        #wpgmza_map {
-          height: 300px !important;
-        }
-      }
-    }
-  }
-  &Bold {
-    font-weight: $semibold;
-    &-yellow {
-      color: $g2Medium;
-      font-weight: $bold;
-    }
-  }
-
 }
 
-.section-menus {
-
-  background: $veryLightColor;
-  overflow: hidden;
-  clear: both;
-  padding: 20px 0 40px;
-  @media screen and (min-width: $md-min) {
-    padding: 20px 20px 40px;
-  }
-
-  .section__title {
-    @include rem(font-size, $footerTitle);
-    color: $g3Medium;
-  }
-  .section__detailTitle,
-  .section__detailContainer{
-    padding: 0 20px;
-    @media screen and (min-width: $md-min) {
-      padding: 0 80px;
-    }
-    &-img{
-      padding: 0;
-      @media screen and (min-width: $md-min) {
-        padding: 0 80px;
-      }
-    }
-  }
+.section__detailTitle {
+  margin: 30px auto 15px;
+  @include rem(font-size, $sectionDetailTitle);
+  @include rem(letter-spacing, 1.8px);
+  text-transform: uppercase;
+  font-weight: $bold;
+  letter-spacing: 2.1px;
 }
 
-.section-carousel {
-  height: 400px;
+.section__detailContainer {
+  margin: 15px auto;
+}
+
+.section__detailContainer-img {
+  height: 220px;
   width: 100%;
-  padding: 0;
+  overflow: hidden;
+  img {
+    min-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    min-height: 100%;
+  }
+}
+
+.section__detailPart {
+  padding: 10px 0;
+  > p {
+    display: block;
+    line-height: 25px;
+    color: $g1Dark;
+  }
+  @media screen and (min-width: $sm-min) {
+    width: 50%;
+    float: left;
+    position: static;
+    transform: none;
+    padding: 10px 20px;
+    &:first-child,
+    &:nth-child(1n+1) {
+      padding-left: 0;
+    }
+  }
   @media screen and (min-width: $md-min) {
-    height: 500px;
+    width: 33%;
+  }
+}
+
+.section__detailPart-map {
+  float: none;
+  padding: 0;
+  position: absolute;
+  top: 47%;
+  width: 100%;
+  transform: translateY(-50%);
+  @media screen and (min-width: $sm-min) {
+    width: 100%;
+    position: static;
+    padding: 0;
+  }
+  & + .section__detail {
+    margin-bottom: 200px;
+    @media screen and (min-width: $sm-min) {
+      margin-bottom: 0;
+    }
+  }
+  #wpgmza_map {
+    height: 200px !important;
+    position: relative;
+    z-index: 2;
+    @media screen and (min-width: $sm-min) {
+      height: 250px !important;
+    }
+    @media screen and (min-width: $md-min) {
+      height: 300px !important;
+    }
+  }
+}
+
+.section__detailBold {
+  font-weight: $semibold;
+  &-yellow {
+    color: $g2Medium;
+    font-weight: $bold;
   }
 }
 
@@ -211,6 +170,35 @@
   .section__detailTitle {
     color: $g2Medium;
     padding-bottom: 20px;
+  }
+}
+
+.section-menus {
+
+  background: $veryLightColor;
+  overflow: hidden;
+  clear: both;
+  padding: 20px 0 40px;
+  @media screen and (min-width: $md-min) {
+    padding: 20px 20px 40px;
+  }
+
+  .section__title {
+    @include rem(font-size, $footerTitle);
+    color: $g3Medium;
+  }
+  .section__detailTitle,
+  .section__detailContainer {
+    padding: 0 20px;
+    @media screen and (min-width: $md-min) {
+      padding: 0 80px;
+    }
+    &-img {
+      padding: 0;
+      @media screen and (min-width: $md-min) {
+        padding: 0 80px;
+      }
+    }
   }
 }
 

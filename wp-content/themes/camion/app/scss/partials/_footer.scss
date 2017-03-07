@@ -1,62 +1,79 @@
-.footer {
+.footer__container {
+  position: relative;
+  background: $g2Light;
+  padding: 30px;
+  text-align: center;
+  color: $g2Medium;
 
-  &__container {
-    position: relative;
-    background: $g2Light;
-    padding: 30px;
-    text-align: center;
-    color: $g2Medium;
-
-    @media screen and (min-width: $md-min) {
-      padding: 60px;
-    }
-
-  }
-
-  &__title {
-    font-weight: $medium;
-    @include rem(font-size, $footerTitle);
-    @include rem(letter-spacing, 2.5px);
-    text-transform: uppercase;
-  }
-
-  &__sociaux {
-    margin: 20px auto;
-  }
-
-  &__order {
-
-    font-weight: $semibold;
-
-    &Description {
-
-    }
-
-    &Link {
-
-      margin-top: 20px;
-      color: $veryLightColor;
-      padding: 15px 40px;
-      text-transform: uppercase;
-      display: inline-block;
-      border: 1px solid $veryLightColor;
-      transition : background-color 1s, color 1s;
-
-      @media screen and (min-width: $md-min) {
-        margin-top: 40px;
-      }
-
-      &:hover{
-        background-color: $veryLightColor;
-        color: $g2Light;
-      }
-
-    }
-
+  @media screen and (min-width: $md-min) {
+    padding: 60px;
   }
 
 }
-.footer__bg{
+
+.footer__title {
+  font-weight: $medium;
+  @include rem(font-size, $footerTitle);
+  @include rem(letter-spacing, 2.5px);
+  text-transform: uppercase;
+}
+
+.footer__sociaux {
+  margin: 20px auto;
+
+  .footer__sociauxLinks li {
+    @include rem(font-size, 24px);
+    margin: 0 7px;
+  }
+}
+.footer__newsletter {
+  padding: 20px 40px 40px;
+}
+.footer__description {
+  font-weight: $semibold;
+  @include rem(font-size, 15px);
+  @include rem(letter-spacing, 1px);
+}
+
+.footer__formInput {
+  display: inline-block;
+  background: none;
+  border: none;
+  color: $veryLightColor;
+  margin-top: 20px;
+
+  &-email{
+    @include rem(font-size, 14px);
+    border-bottom: 1px solid $veryLightColor;
+    padding-bottom: 5px;
+    width: 80%;
+    max-width: 200px;
+  }
+
+  &-submit{
+    margin-left: 10px;
+  }
+
+}
+
+.footer__orderLink {
+
+  margin-top: 20px;
+  color: $veryLightColor;
+  padding: 15px 40px;
+  text-transform: uppercase;
+  display: inline-block;
+  border: 1px solid $veryLightColor;
+  transition: background-color 1s, color 1s;
+
+  &:hover {
+    background-color: $veryLightColor;
+    color: $g2Light;
+  }
+
+}
+
+.footer__bg {
   position: absolute;
   pointer-events: none;
   z-index: 0;
@@ -64,42 +81,39 @@
   width: 100%;
   overflow: hidden;
   left: 0;
-  top:0;
+  top: 0;
   right: 0;
 }
-.footer__sociaux .footer__sociauxLinks li{
-  @include rem(font-size, 24px);
-  margin: 0 7px;
-}
-.footer__bgIcon{
+
+.footer__bgIcon {
   position: absolute;
   @include rem(font-size, $bgIconBig);
   opacity: 0.2;
-  &:first-child{
+  &:first-child {
     display: none;
   }
-  &:nth-child(2){
+  &:nth-child(2) {
     transform: rotate(40deg);
-    top:15%;
+    top: 15%;
     left: 15%;
   }
-  &:last-child{
-    top:40%;
+  &:last-child {
+    top: 40%;
     right: -20px;
   }
   @media screen and (min-width: $md-min) {
     @include rem(font-size, $bgIconBigMd);
-    &:first-child{
+    &:first-child {
       display: block;
       left: -25px;
       transform: rotate(-10deg);
-      bottom:20%;
+      bottom: 20%;
     }
-    &:nth-child(2){
+    &:nth-child(2) {
       @include rem(font-size, $bgIconMediumMd);
       left: 35%;
     }
-    &:last-child{
+    &:last-child {
       right: -70px;
     }
   }

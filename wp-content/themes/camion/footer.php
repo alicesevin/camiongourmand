@@ -14,19 +14,31 @@ global $takeit;
             <div class="footer__sociaux">
                 <ul class="footer__sociauxLinks">
                     <?php if ($facebook): ?>
-                        <li><a target="_blank" class="icon__sociaux icon-facebook" href="<?php echo $facebook?>"></a></li>
+                        <li><a target="_blank" class="icon__sociaux icon-facebook" href="<?php echo $facebook ?>"></a>
+                        </li>
                     <?php endif;
                     if ($instagram): ?>
-                        <li><a target="_blank" class="icon__sociaux icon-instagram" href="<?php echo $instagram?>"></a></li>
+                        <li><a target="_blank" class="icon__sociaux icon-instagram" href="<?php echo $instagram ?>"></a>
+                        </li>
                     <?php endif; ?>
                 </ul>
+            </div>
+            <!-- FOOTER - NEWSLETTER-->
+            <div class="footer__newsletter">
+                <p class="footer__description">Recevoir notre newsletter</p>
+                <form class="footer__form" role="" action="post">
+                    <div class="footer__formContainer">
+                        <input class="footer__formInput footer__formInput-email" type="email" placeholder="Adresse Mail"/>
+                        <input class="footer__formInput footer__formInput-submit" type="submit" value="V">
+                    </div>
+                </form>
             </div>
         <?php endif;
         if ($takeit): ?>
             <!-- FOOTER - ORDER-->
             <div class="footer__order">
-                <p class="footer__orderDescription">Passez commande sur :</p>
-                <a target="_blank" class="footer__orderLink" href="<?php echo $takeit?>">Take eat easy</a>
+                <p class="footer__description">Passez commande sur :</p>
+                <a target="_blank" class="footer__orderLink" href="<?php echo $takeit ?>">Take eat easy</a>
             </div>
         <?php endif; ?>
         <!-- FOOTER - BACKGROUND -->
